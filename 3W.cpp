@@ -46,9 +46,9 @@ int main(void)
         ////glm의 삼각함수는 radian 형식으로 입력을 받기 때문에 변환해서 넣어주어야한다.
         //glm::sin(glm::radians(90.0));  
 
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        glColor3f(0.0f, 0.0f, 1.0f);
+        glColor3f(1.0f, 0.0f, 1.0f);
         double rad = 1.0f;
         glBegin(GL_LINE_STRIP);
         for (int i = 0; i <= 360; i++) 
