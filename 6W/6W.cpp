@@ -33,13 +33,13 @@ struct Transform
 
 
 Vertex star[5];             // static mesh
-Vertex transformedStar[5];  //È­¸é¿¡ ±×¸± ¿À¸Á¼º
+Vertex transformedStar[5];  //í™”ë©´ì— ê·¸ë¦´ ì˜¤ë§ì„±
 Vertex circle[360];             // static mesh 
-Vertex transformedCircle[360];  // È­¸é¿¡ ±×·ÁÁú ¿ø
+Vertex transformedCircle[360];  // í™”ë©´ì— ê·¸ë ¤ì§ˆ ì›
 
-Transform transform;  //world Çà·ÄÀÌ µÉ transform
+Transform transform;  //world í–‰ë ¬ì´ ë  transform
 
-//<¹®Á¦>////////Àü¿ªº¯¼ö ¾²´Â°÷////////////////////////////////////////////////////////////
+//<ë¬¸ì œ>////////ì „ì—­ë³€ìˆ˜ ì“°ëŠ”ê³³////////////////////////////////////////////////////////////
 
 float Xp = 1.01f;
 float Xm = 0.99f;
@@ -62,13 +62,15 @@ glm::mat3 rotation_p(
 glm::mat3 scale_p(
     1.01, 0, 0,
     0, 1.01, 0,
-    0, 0, 1.01
+    0, 0, 1
 );
+
+
 
 glm::mat3 scale_m(
     0.99, 0, 0,
     0, 0.99, 0,
-    0, 0, 0.99
+    0, 0,  1
 );
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -106,8 +108,8 @@ void Init()
     startRenderTimePoint = chrono::system_clock::now();
 
 
-    //object»ı¼ººÎ
-     /// Star(¿À¸Á¼º) »ı¼º
+    //objectìƒì„±ë¶€
+     /// Star(ì˜¤ë§ì„±) ìƒì„±
     int i = 0;
     for (float theta = 0; theta < 360; theta += 72)
     {
@@ -127,7 +129,7 @@ void Init()
         i++;
     }
 
-    // ¿ø »ı¼º
+    // ì› ìƒì„±
     for (int theta = 0; theta < 360; theta++)
     {
         circle[theta].pos.x = -glm::sin(glm::radians((float)theta)) * 0.5;
@@ -143,7 +145,7 @@ void Init()
     }
 
 
-    //Æ®·£½ºÆû ÃÊ±âÈ­ (±âº»Çü Á¦°ø)
+    //íŠ¸ëœìŠ¤í¼ ì´ˆê¸°í™” (ê¸°ë³¸í˜• ì œê³µ)
     transform.translate = glm::mat3(
         1, 0, 0,
         0, 1, 0,
@@ -172,13 +174,13 @@ void Update()
 {
     while (!glfwWindowShouldClose(window))
     {
-        //Update·ÎÁ÷
-        //<¹®Á¦>//////////////////////////////////////////////////////////////////////////////////
+        //Updateë¡œì§
+        //<ë¬¸ì œ>//////////////////////////////////////////////////////////////////////////////////
 
-        //1. translate ¸¦ ÇÁ·¹ÀÓ´ç ¿À¸¥ÂÊÀ¸·Î 0.001¾¿ ´©Àû½ÃÄÑ¼­ ¹°Ã¼¸¦ ÀÌµ¿ÇØº¸¼¼¿ä.
-        //2. Rotation À» ÇÁ·¹ÀÓ´ç 1µµ¾¿ ´©Àû½ÃÄÑ¼­ ¹°Ã¼¸¦ È¸Àü½ÃÄÑº¸¼¼¿ä.
-        //3. ScaleÀº ÃÊ´ç 0.01¾¿ ÃÖ´ë 1.3¹è±îÁö ´Ã¾î³µ´Ù°¡ 0.7¹è±îÁö ÁÙ¾îµéµµ·Ï ¸¸µå½Ã¿À (¹İº¹)
-        //   (1.3¹è ÀÌ»óÀÌ µÇ¸é ÁÙ¾îµé°í 0.7¹è ÀÌÇÏ°¡ µÇ¸é ´Ù½Ã ´Ã¾î³ª°Ô ¸¸µå½Ã¿À)
+        //1. translate ë¥¼ í”„ë ˆì„ë‹¹ ì˜¤ë¥¸ìª½ìœ¼ë¡œ 0.001ì”© ëˆ„ì ì‹œì¼œì„œ ë¬¼ì²´ë¥¼ ì´ë™í•´ë³´ì„¸ìš”.
+        //2. Rotation ì„ í”„ë ˆì„ë‹¹ 1ë„ì”© ëˆ„ì ì‹œì¼œì„œ ë¬¼ì²´ë¥¼ íšŒì „ì‹œì¼œë³´ì„¸ìš”.
+        //3. Scaleì€ ì´ˆë‹¹ 0.01ì”© ìµœëŒ€ 1.3ë°°ê¹Œì§€ ëŠ˜ì–´ë‚¬ë‹¤ê°€ 0.7ë°°ê¹Œì§€ ì¤„ì–´ë“¤ë„ë¡ ë§Œë“œì‹œì˜¤ (ë°˜ë³µ)
+        //   (1.3ë°° ì´ìƒì´ ë˜ë©´ ì¤„ì–´ë“¤ê³  0.7ë°° ì´í•˜ê°€ ë˜ë©´ ë‹¤ì‹œ ëŠ˜ì–´ë‚˜ê²Œ ë§Œë“œì‹œì˜¤)
 
         transform.translate = transform.translate * translate_p;
 
@@ -222,13 +224,13 @@ void Update()
 
 
 
-        //»ö ÃÊ±âÈ­
+        //ìƒ‰ ì´ˆê¸°í™”
         glClearColor(.0f, 0.0f, 0.0f, 0.1f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //¼±µÎ²²
+        //ì„ ë‘ê»˜
         glLineWidth(7.0f);
-        //¿À¸Á¼º ±×¸®±â
+        //ì˜¤ë§ì„± ê·¸ë¦¬ê¸°
         glBegin(GL_LINE_STRIP);
 
         int a = 0;
@@ -252,7 +254,7 @@ void Update()
         glVertex3f(transformedStar[a].pos.x, transformedStar[a].pos.y, 0.0f);
         glEnd();
 
-        //¿ø±×¸®±â
+        //ì›ê·¸ë¦¬ê¸°
         glBegin(GL_LINE_STRIP);
         for (int theta = 0; theta < 360; theta++)
         {
@@ -263,11 +265,11 @@ void Update()
 
 
 
-        //È­¸é ½º¿Ò
+        //í™”ë©´ ìŠ¤ì™‘
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-        //·»´õ½Ã°£ ÃøÁ¤
+        //ë Œë”ì‹œê°„ ì¸¡ì •
         renderDuration = chrono::system_clock::now() - startRenderTimePoint;
         startRenderTimePoint = chrono::system_clock::now();
 
