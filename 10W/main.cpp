@@ -7,75 +7,74 @@ using namespace std;
 
 
 void main() {
+													// 10Line 변경된 벡터값을 저장할 객체
+	Mat3 translate(3, 5);										// 11Line 이동행렬값을 저장할 객체
+	Mat3 rotate(30,"right");									// 12Line 회전행렬값을 저장할 객체
+	Mat3 scale(2);											// 13Line 크기변환행렬값을 저장할 객체
+	Vec3 v(1, 1);											// 14Line 기존 벡터값을 저장할 객체
 
-	Mat3 p;
+	cout << "translate matrix\n{";
 
-	Translate translate(3, 5);
-	Rotate rotate(30);
-	Scale scale(2);
-
-	Vec vec(1, 1);
-
-	cout << "translate" << "\n";
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)									// 18Line 이동행렬 출력
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			cout << translate.Translate_Mat3[i][j] << " ";
+			cout << " " << translate.mat3[i][j];
 		}
-		cout << "\n";
+		if (i < 2) cout << "\n ";
 	}
-	cout << "\n";
-	cout << "rotate" << "\n";
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << rotate.Rotate_Mat3[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	cout << "\n";
-	cout << "scale" << "\n";
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << scale.Scale_Mat3[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	cout << "\n";
-	cout << "V" << "\n";
-	for (int i = 0; i < 1; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << vec.Vec_v[i][j] << " ";
-		};
-	}
-	cout << "\n";
-	cout << "\n";
-	cout << "P" << "\n";
-	for (int i = 0; i < 1; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << p.P_v[i][j] << " ";
-		};
-	}
-	cout << "\n";
-	cout << "\n";
-	cout << "P = v * Translate * Rotate * Scale" << "\n";
-	cout << "\n";
-	p.multiply(vec.Vec_v, translate.Translate_Mat3, rotate.Rotate_Mat3, scale.Scale_Mat3);
-	cout << "P" << "\n";
-	cout << "( ";
-		for (int j = 0; j < 3; j++)
-		{
-			cout << p.P_v[0][j] << "  ";
-		}
-	cout << " )";
-	cout << "\n";
+	cout << " }\n\nrotate matrix\n{";
 
+	for (int i = 0; i < 3; i++)									// 28Line 회전행렬 출력
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << " " << rotate.mat3[i][j];
+		}
+		if (i < 2) cout << "\n ";
+	}
+
+	cout << " }\n\nscale matrix\n{";
+
+	for (int i = 0; i < 3; i++)									// 39Line 크기변환행렬 출력
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << " " << scale.mat3[i][j];
+		}
+		if (i < 2) cout << "\n ";
+	}
+
+	cout << " }\n\nv vector\n( ";
+
+	for (int j = 0; j < 3; j++)									// 50Line 기존벡터 출력
+	{
+		cout << v.vec3[0][j];
+		if (j < 2) cout << ", ";
+	};
+
+	cout << " )\n\nP = v * Translate * Rotate * Scale\n\n";
+
+	// 59Line 이동 Position p 벡터 행렬곱계산
+
+	Vec3 p = v * translate * rotate * scale;							// 60Line operator *를 사용해서 p 계산
+										
+	cout << "P = ( ";
+
+		for (int j = 0; j < 3; j++)								// 64Line P 벡터 출력
+		{
+			cout << p.vec3[0][j];
+			if (j < 2) cout << ", ";
+		}
+		v.Convert(p.vec3);									// 69Line v 벡터값을 계산한 p값으로 바꿔줌
+
+	cout << " )\n\nv = P\n\nv vector(convert)\n( ";
+
+	for (int j = 0; j < 3; j++)									// 73Line 변경된 v 벡터 출력
+	{
+		cout << v.vec3[0][j];
+		if (j < 2) cout << ", ";
+	}
+
+	cout << " )\n";
 }
