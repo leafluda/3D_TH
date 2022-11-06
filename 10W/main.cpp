@@ -55,22 +55,20 @@ void main() {
 
 	cout << " )\n\nP = v * Translate * Rotate * Scale\n\n";
 
-	// 59Line 이동 Position p 벡터 행렬곱계산
-
-	Vec3 p = v * translate * rotate * scale;							// 60Line operator *를 사용해서 p 계산
+	Vec3 p = v * translate * rotate * scale;							// 58Line operator *를 사용해서 p 계산
 										
 	cout << "P = ( ";
 
-		for (int j = 0; j < 3; j++)								// 64Line P 벡터 출력
+		for (int j = 0; j < 3; j++)								// 62Line P 벡터 출력
 		{
 			cout << p.vec3[0][j];
 			if (j < 2) cout << ", ";
 		}
-		v.Convert(p.vec3);									// 69Line v 벡터값을 계산한 p값으로 바꿔줌
+		v.Convert(p.vec3);									// 67Line v 벡터값을 계산한 p값으로 바꿔줌
 
 	cout << " )\n\nv = P\n\nv vector(convert)\n( ";
 
-	for (int j = 0; j < 3; j++)									// 73Line 변경된 v 벡터 출력
+	for (int j = 0; j < 3; j++)									// 71Line 변경된 v 벡터 출력
 	{
 		cout << v.vec3[0][j];
 		if (j < 2) cout << ", ";
