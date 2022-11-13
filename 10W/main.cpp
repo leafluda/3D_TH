@@ -7,72 +7,498 @@ using namespace std;
 
 
 void main() {
-													// 10Line ë³€ê²½ëœ ë²¡í„°ê°’ì„ ì €ì¥í•  ê°ì²´
-	Mat3 translate(3, 5);										// 11Line ì´ë™í–‰ë ¬ê°’ì„ ì €ì¥í•  ê°ì²´
-	Mat3 rotate(30,"right");									// 12Line íšŒì „í–‰ë ¬ê°’ì„ ì €ì¥í•  ê°ì²´
-	Mat3 scale(2);											// 13Line í¬ê¸°ë³€í™˜í–‰ë ¬ê°’ì„ ì €ì¥í•  ê°ì²´
-	Vec3 v(1, 1);											// 14Line ê¸°ì¡´ ë²¡í„°ê°’ì„ ì €ì¥í•  ê°ì²´
+	
+	bool mat_vec_cal = true;
+	int page = 0;
+	int detail_page = 0;
 
-	cout << "translate matrix\n{";
+	Mat3 m1;
+	Mat3 m2(1, 2, 3, 4, 5, 6, 7, 8, 9);
+	Mat3 m3(3, 5);
+	Mat3 m4(30, "right");
+	Mat3 m5(2);
+	Mat4 m6;
+	Mat4 m7(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+	Mat4 m8(3, 5, 2);
+	Mat4 m9(30, 'y', "right");
+	Mat4 m10(2);
+	Vec3 v1;
+	Vec3 v2(1,1,1);
+	Vec4 v3;
+	Vec4 v4(1, 1, 1, 1);
+	Mat3 m11(1, 2, 3, 4, 5, 6, 7, 8, 9);
+	Mat3 m12(1, 2, 3, 4, 5, 6, 7, 8, 9);
+	Mat4 m13(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+	Mat4 m14(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+	Vec3 v5(3,2,1);
+	Vec3 v6(3, 2, 1);
+	Vec4 v7(4, 3, 2, 1);
+	Vec4 v8(4, 3, 2, 1);
+	Vec3 v9(3,5,1);
+	Vec3 v10(9, 2, 1);
+	Vec4 v11(8,4,2,1);
+	Vec4 v12(9, 6, 3, 1);
 
-	for (int i = 0; i < 3; i++)									// 18Line ì´ë™í–‰ë ¬ ì¶œë ¥
+
+	while (mat_vec_cal)
 	{
-		for (int j = 0; j < 3; j++)
+		switch (page)
 		{
-			cout << " " << translate.mat3[i][j];
+		case 0 :
+			cout << "°è»ê ¿¹½Ã" << endl;
+			cout << "1. Çà·Ä »ı¼º" << endl;
+			cout << "2. º¤ÅÍ »ı¼º" << endl;
+			cout << "3. Çà·Ä °è»ê" << endl;
+			cout << "4. º¤ÅÍ °è»ê" << endl;
+			cout << "5. ³¡³»±â" << endl;
+			cout << "ÀÔ·Â(ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
+		case 1:
+			cout << "=====================================================================================" << endl;
+			cout << "1. Çà·Ä »ı¼º" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "1) Mat3" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "-1 Mat3 ±âº» Çà·Ä ÇüÅÂ : Mat3 m1" << endl;
+			m1.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 Mat3 ±âº» Çà·Ä »ı¼º : Mat3 m2(1,2,3,4,5,6,7,8,9)" << endl;
+			m2.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Mat3 ÀÌµ¿ Çà·Ä »ı¼º : Mat3 m3(3,5)" << endl;
+			m3.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 Mat3 È¸Àü Çà·Ä »ı¼º : Mat3 m4(30,''right'')" << endl;
+			m4.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-5 Mat3 Å©±âº¯È¯ Çà·Ä »ı¼º : Mat3 m5(2)" << endl;
+			m5.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat3 m11(1,2,3,4,5,6,7,8,9)" << endl;
+			m11.print();
+			cout << "-6 Mat3 ´ÜÀ§Çà·Ä ÃÊ±âÈ­ : m11.identity_matrix(m11.length)" << endl;
+			m11.identity_matrix(m11.length);
+			m11.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat3 m12(1,2,3,4,5,6,7,8,9)" << endl;
+			m12.print();
+			cout << "-7 Mat3 ÀüÄ¡ Çà·Ä º¯È¯ : m12.transpose_matrix(m11.length)" << endl;
+			m12.transpose_matrix(m11.length);
+			m12.print();
+			cout << "=====================================================================================" << endl;
+			cout << "2) Mat4" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "-1 Mat4 ±âº» Çà·Ä ÇüÅÂ : Mat4 m6" << endl;
+			m6.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 Mat4 ±âº» Çà·Ä »ı¼º : Mat4 m7(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)" << endl;
+			m7.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Mat4 ÀÌµ¿ Çà·Ä »ı¼º : Mat4 m8(3, 5, 2)" << endl;
+			m8.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 Mat4 È¸Àü Çà·Ä »ı¼º : Mat4 m9(30, 'y', ''right'')" << endl;
+			m9.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-5 Mat4 Å©±âº¯È¯ Çà·Ä »ı¼º : Mat4 m10(2)" << endl;
+			m10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat4 m13(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)" << endl;
+			m13.print();
+			cout << "-6 Mat4 ´ÜÀ§Çà·Ä ÃÊ±âÈ­ : m13.identity_matrix(m13.length)" << endl;
+			m13.identity_matrix(m13.length);
+			m13.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat4 m12(1,2,3,4,5,6,7,8,9)" << endl;
+			m14.print();
+			cout << "-7 Mat4 ÀüÄ¡ Çà·Ä º¯È¯ : m14.transpose_matrix(m14.length)" << endl;
+			m14.transpose_matrix(m14.length);
+			m14.print();
+			cout << "=====================================================================================" << endl;
+			cout << "µÚ·Î°¡±â(0 ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
+		case 2:
+			cout << "=====================================================================================" << endl;
+			cout << "2. º¤ÅÍ »ı¼º" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "1) Vec3" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "-1 Vec3 ±âº» Çà·Ä »ı¼ºÀÚ ÃÊ±â°ª : Vec3 v1" << endl;
+			v1.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 Vec3 ±âº» Çà·Ä »ı¼º : Vec3 v2(1,1,1)" << endl;
+			v2.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v5(3,2,1)" << endl;
+			v5.print();
+			cout << "-3 Vec3 ´ÜÀ§ º¤ÅÍ ÃÊ±âÈ­ : v5.identity_vector(v5.length)" << endl;
+			v5.identity_vector(v5.length);
+			v5.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v6(3,2,1)" << endl;
+			v6.print();
+			cout << "-4 Vec3 ÀüÄ¡ º¤ÅÍ º¯È¯: v6.transpose_matrix(v6.length)" << endl;
+			v6.transpose_matrix(v6.length);
+			v6.print();
+			cout << "=====================================================================================" << endl;
+			cout << "2) Vec4" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "-1 Vec4 ±âº» Çà·Ä »ı¼ºÀÚ ÃÊ±â°ª : Vec4 v3" << endl;
+			v3.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 Vec4 ±âº» Çà·Ä »ı¼º : Vec4 v4(1,1,1,1)" << endl;
+			v4.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v7(4,3,2,1)" << endl;
+			v7.print();
+			cout << "-3 Vec4 ´ÜÀ§ º¤ÅÍ ÃÊ±âÈ­ : v7.identity_vector(v7.length)" << endl;
+			v7.identity_vector(v7.length);
+			v7.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v8(4,3,2,1)" << endl;
+			v8.print();
+			cout << "-4 Vec4 ÀüÄ¡ º¤ÅÍ º¯È¯: v8.transpose_vector(v8.length)" << endl;
+			v8.transpose_vector(v8.length);
+			v8.print();
+			cout << "=====================================================================================" << endl;
+			cout << "µÚ·Î°¡±â(0 ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
+		case 3:
+			cout << "=====================================================================================" << endl;
+			cout << "3. Çà·Ä °è»ê" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "1) Mat3" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "Mat3 m3(3,5)" << endl;
+			m3.print();
+			cout << "Mat3 m5(2)" << endl;
+			m5.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-1 Mat3 * Mat3 : m3.multifly_matrix(m3, m5)" << endl;
+			m3.multifly_matrix(m3, m5);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 (Mat3 * Mat3)t : m3.multifly_transpose_matrix(m3, m5)" << endl;
+			m3.multifly_transpose_matrix(m3, m5);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat3 m3(3,5)" << endl;
+			m3.print();
+			cout << "Vec3 v2(1,1,1)" << endl;
+			v2.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Mat3 * Vec3 : v2.multifly_matrix(m3, v2)" << endl;
+			v2.multifly_matrix(m3, v2);
+			cout << "(Vec3°¡ ÀüÄ¡µÇ¾îÀÖÁö ¾ÊÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v2 ÀüÄ¡ º¤ÅÍ º¯È¯: v2.transpose_vector(v2.length)" << endl;
+			v2.transpose_vector(v2.length);
+			v2.print();
+			cout << "Mat3 * Vec3 : v2.multifly_matrix(m3, v2)" << endl;
+			v2.multifly_matrix(m3, v2);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 (Mat3 * Vec3)t : v2.multifly_transpose_matrix(m3, v2)" << endl;
+			v2.multifly_transpose_matrix(m3, v2);
+			cout << "Vec3 v2 ÀüÄ¡ º¤ÅÍ º¯È¯: v2.transpose_vector(v2.length)" << endl;
+			v2.transpose_vector(v2.length);
+			v2.print();
+			cout << "(Vec3°¡ ÀüÄ¡µÇ¾îÀÖÁö ¾ÊÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Mat3 * Vec3 : v2.multifly_transpose_matrix(m3, v2)" << endl;
+			v2.multifly_transpose_matrix(m3, v2);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat3 m3(3,5)" << endl;
+			m3.print();
+			cout << "-5 Mat3 * double : m3.multifly_const_matrix(m3, 4)" <<endl;
+			m3.multifly_const_matrix(m3, 4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-6 Mat3 / double : m3.division_const_matrix(m3, 4)" << endl;
+			m3.division_const_matrix(m3, 4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat3 m3(3, 5, 2)" << endl;
+			m3.print();
+			cout << "Mat3 m5(2)" << endl;
+			m5.print();
+			cout << "-7 Mat3 * double : m3.plus_matrix(m3, m5)" << endl;
+			m3.plus_matrix(m3, m5);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-8 Mat3 * double : m3.minus_matrix(m3, m5)" << endl;
+			m3.minus_matrix(m3, m5);
+			cout << "=====================================================================================" << endl;
+			cout << "2) Mat4" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "Mat4 m8(3,5,2)" << endl;
+			m8.print();
+			cout << "Mat4 m7(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)" << endl;
+			m7.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-1 Mat4 * Mat4 : m8.multifly_matrix(m8, m7)" << endl;
+			m8.multifly_matrix(m8, m7);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 (Mat4 * Mat4)t : m8.multifly_transpose_matrix(m8, m7)" << endl;
+			m8.multifly_transpose_matrix(m8, m7);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat4 m8(3,5,2)" << endl;
+			m8.print();
+			cout << "Vec4 v4(1,1,1,1)" << endl;
+			v4.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Mat4 * Vec4 : v4.multifly_matrix(m8, v4)" << endl;
+			v4.multifly_matrix(m8, v4);
+			cout << "(Vec4°¡ ÀüÄ¡µÇ¾îÀÖÁö ¾ÊÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec4 v4 ÀüÄ¡ º¤ÅÍ º¯È¯: v4.transpose_vector(v4.length)" << endl;
+			v4.transpose_vector(v4.length);
+			v4.print();
+			cout << "Mat4 * Vec4 : v4.multifly_matrix(m8, v4)" << endl;
+			v4.multifly_matrix(m8, v4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 (Mat4 * Vec4)t : v4.multifly_transpose_matrix(m8, v4)" << endl;
+			v4.multifly_transpose_matrix(m8, v4);
+			cout << "Vec4 v2 ÀüÄ¡ º¤ÅÍ º¯È¯: v4.transpose_vector(v4.length)" << endl;
+			v4.transpose_vector(v4.length);
+			v4.print();
+			cout << "(Vec4°¡ ÀüÄ¡µÇ¾îÀÖÁö ¾ÊÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "(Mat4 * Vec4)t : v4.multifly_transpose_matrix(m8, v4)" << endl;
+			v4.multifly_transpose_matrix(m8, v4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat4 m8(3,5,2)" << endl;
+			m8.print();
+			cout << "-5 Mat4 * double : m8.multifly_const_matrix(m8, 4)" << endl;
+			m8.multifly_const_matrix(m8, 4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-6 Mat3 / double : m3.division_const_matrix(m8, 4)" << endl;
+			m8.division_const_matrix(m8, 4);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Mat4 m8(3, 5, 2)" << endl;
+			m8.print();
+			cout << "Mat4 m10(2)" << endl;
+			m10.print();
+			cout << "-7 Mat4 * double : m3.plus_matrix(m8, m10)" << endl;
+			m8.plus_matrix(m8, m10);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-8 Mat4 * double : m3.minus_matrix(m8, m10)" << endl;
+			m8.minus_matrix(m8, m10);
+			cout << "=====================================================================================" << endl;
+			cout << "µÚ·Î°¡±â(0 ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
+		case 4:
+			cout << "=====================================================================================" << endl;
+			cout << "4. º¤ÅÍ °è»ê" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "1) Vec3" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			cout << "Vec3 v10(9,2,1)" << endl;
+			v10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-1 Vec3 * Vec3 : v9.multifly_vector(v9, v10)" << endl;
+			v9.multifly_vector(v9, v10);
+			cout << "(Vec3µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v9 ÀüÄ¡ º¤ÅÍ º¯È¯: v9.transpose_vector(v9.length)" << endl;
+			v9.transpose_vector(v9.length);
+			v9.print();
+			cout << "Vec3 * Vec3 : v9.multifly_vector(v9, v10)" << endl;
+			v9.multifly_vector(v9, v10);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 (Vec3 * Vec3)t : v9.multifly_transpose_vector(v9, v10)" << endl;
+			v9.multifly_transpose_vector(v9, v10);
+			cout << "(Vec3µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v9 ÀüÄ¡ º¤ÅÍ º¯È¯: v9.transpose_vector(v9.length)" << endl;
+			v9.transpose_vector(v9.length);
+			v9.print();
+			cout << "(Vec3 * Vec3)t : v9.multifly_transpose_vector(v9, v10)" << endl;
+			v9.multifly_transpose_vector(v9, v10);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			cout << "Mat3 m3(3,5)" << endl;
+			m3.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Vec3 * Mat3 : v9.multifly_vector(v9, m3)" << endl;
+			v9.multifly_vector(v9, m3);
+			cout << "(Vec3°¡ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v9 ÀüÄ¡ º¤ÅÍ º¯È¯: v9.transpose_vector(v9.length)" << endl;
+			v9.transpose_vector(v9.length);
+			v9.print();
+			cout << "Vec3 * Mat3 : v9.multifly_vector(v9, m3)" << endl;
+			v9.multifly_vector(v9, m3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 (Vec3 * Mat3)t : v9.multifly_transpose_vector(v9, m3)" << endl;
+			v9.multifly_transpose_vector(v9, m3);
+			cout << "(Vec3°¡ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v9 ÀüÄ¡ º¤ÅÍ º¯È¯: v9.transpose_vector(v9.length)" << endl;
+			v9.transpose_vector(v9.length);
+			v9.print();
+			cout << "(Vec3 * Mat3)t : v9.multifly_transpose_vector(v9, m3)" << endl;
+			v9.multifly_transpose_vector(v9, m3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			cout << "Vec3 v10(9,2,1)" << endl;
+			v10.print();
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v10.transpose_vector(v10.length);
+			v10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-5 Vec3 * double : v9.multifly_const_vector(v9, 3)" << endl;
+			v9.multifly_const_vector(v9, 3);
+			cout << "Vec3°¡ ÀüÄ¡µÇ¾î ÀÖÀ»°æ¿ì¿¡´Â ÀüÄ¡µÈ »óÅÂ·Î °ªÀÌ Ãâ·Â\n" << endl;
+			cout << "Vec3 * double : v10.multifly_const_vector(v10, 3)" << endl;
+			v10.multifly_const_vector(v10, 3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			v10.transpose_vector(v10.length);
+			cout << "Vec3 v10(9,2,1)" << endl;
+			v10.print();
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v10.transpose_vector(v10.length);
+			v10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-6 Vec3 / double : v9.division_const_vector(v9, 3)" << endl;
+			v9.division_const_vector(v9, 3);
+			cout << "Vec3°¡ ÀüÄ¡µÇ¾î ÀÖÀ»°æ¿ì¿¡´Â ÀüÄ¡µÈ »óÅÂ·Î °ªÀÌ Ãâ·Â\n" << endl;
+			cout << "Vec3 / double : v10.division_const_vector(v10, 3)" << endl;
+			v10.division_const_vector(v10, 3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			v10.transpose_vector(v10.length);
+			cout << "Vec3 v10(9,2,1)" << endl;
+			v10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-7 Vec3 + Vec3 : v9.plus_vector(v9, v10)" << endl;
+			v9.plus_vector(v9, v10);
+			cout << "(Vec3°¡ µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v10.transpose_vector(v10.length);
+			v10.print();
+			cout << "Vec3 + Vec3 : v9.plus_vector(v9, v10)" << endl;
+			v10.plus_vector(v9, v10);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec3 v9(3,5,1)" << endl;
+			v9.print();
+			v10.transpose_vector(v10.length);
+			cout << "Vec3 v10(9,2,1)" << endl;
+			v10.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-8 Vec3 + Vec3 : v9.minus_vector(v9, v10)" << endl;
+			v9.minus_vector(v9, v10);
+			cout << "(Vec3°¡ µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v10.transpose_vector(v10.length);
+			v10.print();
+			cout << "Vec3 + Vec3 : v9.minus_vector(v9, v10)" << endl;
+			v10.minus_vector(v9, v10);
+			cout << "=====================================================================================" << endl;
+			cout << "2) Vec4" << endl;
+			cout << "=====================================================================================" << endl;
+			cout << "Vec4 v11(8,4,2,1)" << endl;
+			v11.print();
+			cout << "Mat4 m8(3,5,2)" << endl;
+			m8.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-1 Vec4 * Mat4 : v11.multifly_vector(v11, m8)" << endl;
+			v11.multifly_vector(v11, m8);
+			cout << "(Vec4°¡ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec4 v11 ÀüÄ¡ º¤ÅÍ º¯È¯: v11.transpose_vector(v11.length)" << endl;
+			v11.transpose_vector(v11.length);
+			v11.print();
+			cout << "Vec4 * Mat4 : v11.multifly_vector(v11, m8)" << endl;
+			v11.multifly_vector(v11, m8);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-2 (Vec4 * Mat4)t : v11.multifly_transpose_vector(v11, m8)" << endl;
+			v11.multifly_transpose_vector(v11, m8);
+			cout << "(Vec4°¡ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec4 v9 ÀüÄ¡ º¤ÅÍ º¯È¯: v11.transpose_vector(v11.length)" << endl;
+			v11.transpose_vector(v11.length);
+			v11.print();
+			cout << "(Vec4 * Mat4)t : v11.multifly_transpose_vector(v11, m8)" << endl;
+			v11.multifly_transpose_vector(v11, m8);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v11(8,4,2,1)" << endl;
+			v11.print();
+			cout << "Vec4 v12(9,6,3,1)" << endl;
+			v12.print();
+			cout << "Vec4 v12 ÀüÄ¡ º¤ÅÍ º¯È¯: v12.transpose_vector(v12.length)" << endl;
+			v12.transpose_vector(v12.length);
+			v12.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-3 Vec4 * double : v11.multifly_const_vector(v11, 2)" << endl;
+			v11.multifly_const_vector(v11, 2);
+			cout << "Vec4°¡ ÀüÄ¡µÇ¾î ÀÖÀ»°æ¿ì¿¡´Â ÀüÄ¡µÈ »óÅÂ·Î °ªÀÌ Ãâ·Â\n" << endl;
+			cout << "Vec4 * double : v12.multifly_const_vector(v12, 3)" << endl;
+			v12.multifly_const_vector(v12, 3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v11(8,4,2,1)" << endl;
+			v11.print();
+			v12.transpose_vector(v12.length);
+			cout << "Vec4 v12(9,6,3,1)" << endl;
+			v12.print();
+			cout << "Vec4 v12 ÀüÄ¡ º¤ÅÍ º¯È¯: v12.transpose_vector(v12.length)" << endl;
+			v12.transpose_vector(v12.length);
+			v12.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-4 Vec4 / double : v11.division_const_vector(v11, 2)" << endl;
+			v11.division_const_vector(v11, 2);
+			cout << "Vec4°¡ ÀüÄ¡µÇ¾î ÀÖÀ»°æ¿ì¿¡´Â ÀüÄ¡µÈ »óÅÂ·Î °ªÀÌ Ãâ·Â\n" << endl;
+			cout << "Vec4 / double : v12.division_const_vector(v12, 3)" << endl;
+			v12.division_const_vector(v12, 3);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v11(8,4,2,1)" << endl;
+			v11.print();
+			v12.transpose_vector(v12.length);
+			cout << "Vec4 v12(9,6,3,1)" << endl;
+			v12.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-5 Vec4 + Vec4 : v11.plus_vector(v11, v12)" << endl;
+			v11.plus_vector(v11, v12);
+			cout << "(Vec3°¡ µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v12.transpose_vector(v12.length);
+			v12.print();
+			cout << "Vec4 + Vec4 : v11.plus_vector(v11, v12)" << endl;
+			v12.plus_vector(v11, v12);
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "Vec4 v11(8,4,2,1)" << endl;
+			v11.print();
+			v12.transpose_vector(v12.length);
+			cout << "Vec4 v12(9,6,3,1)" << endl;
+			v12.print();
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "-6 Vec4 - Vec4 : v11.minus_vector(v11, v12)" << endl;
+			v11.minus_vector(v11, v12);
+			cout << "(Vec3°¡ µÑÁß ÇÏ³ª¶óµµ ÀüÄ¡µÇ¾îÀÖÀ¸¸é ¿¹¿Ü Ã³¸®)\n" << endl;
+			cout << "Vec3 v10 ÀüÄ¡ º¤ÅÍ º¯È¯: v10.transpose_vector(v10.length)" << endl;
+			v12.transpose_vector(v12.length);
+			v12.print();
+			cout << "Vec4 - Vec4 : v11.minus_vector(v11, v12)" << endl;
+			v12.minus_vector(v11, v12);
+			cout << "=====================================================================================" << endl;
+			cout << "µÚ·Î°¡±â(0 ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
+		case 5:
+			mat_vec_cal = false;
+			break;
+		default :
+			cout << "1~5»çÀÌÀÇ Á¤¼ö¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä\n" << endl;
+			cout << "°è»ê ¿¹½Ã" << endl;
+			cout << "1. Çà·Ä »ı¼º" << endl;
+			cout << "2. º¤ÅÍ »ı¼º" << endl;
+			cout << "3. Çà·Ä °è»ê" << endl;
+			cout << "4. º¤ÅÍ °è»ê" << endl;
+			cout << "5. ³¡³»±â" << endl;
+			cout << "ÀÔ·Â(ÀÔ·ÂÈÄ ¿£ÅÍ) : ";
+			cin >> page;
+			cout << "\n";
+			break;
 		}
-		if (i < 2) cout << "\n ";
 	}
-	cout << " }\n\nrotate matrix\n{";
-
-	for (int i = 0; i < 3; i++)									// 28Line íšŒì „í–‰ë ¬ ì¶œë ¥
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << " " << rotate.mat3[i][j];
-		}
-		if (i < 2) cout << "\n ";
-	}
-
-	cout << " }\n\nscale matrix\n{";
-
-	for (int i = 0; i < 3; i++)									// 39Line í¬ê¸°ë³€í™˜í–‰ë ¬ ì¶œë ¥
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << " " << scale.mat3[i][j];
-		}
-		if (i < 2) cout << "\n ";
-	}
-
-	cout << " }\n\nv vector\n( ";
-
-	for (int j = 0; j < 3; j++)									// 50Line ê¸°ì¡´ë²¡í„° ì¶œë ¥
-	{
-		cout << v.vec3[0][j];
-		if (j < 2) cout << ", ";
-	};
-
-	cout << " )\n\nP = v * Translate * Rotate * Scale\n\n";
-
-	Vec3 p = v * translate * rotate * scale;							// 58Line operator *ë¥¼ ì‚¬ìš©í•´ì„œ p ê³„ì‚°
-										
-	cout << "P = ( ";
-
-		for (int j = 0; j < 3; j++)								// 62Line P ë²¡í„° ì¶œë ¥
-		{
-			cout << p.vec3[0][j];
-			if (j < 2) cout << ", ";
-		}
-		v.Convert(p.vec3);									// 67Line v ë²¡í„°ê°’ì„ ê³„ì‚°í•œ pê°’ìœ¼ë¡œ ë°”ê¿”ì¤Œ
-
-	cout << " )\n\nv = P\n\nv vector(convert)\n( ";
-
-	for (int j = 0; j < 3; j++)									// 71Line ë³€ê²½ëœ v ë²¡í„° ì¶œë ¥
-	{
-		cout << v.vec3[0][j];
-		if (j < 2) cout << ", ";
-	}
-
-	cout << " )\n";
 }

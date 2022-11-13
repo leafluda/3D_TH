@@ -4,82 +4,686 @@
 #include <stdio.h>
 using namespace std;
 
-class Mat3 { // í–‰ë ¬ í´ë˜ìŠ¤
+
+class Mumath {
 
 public:
 
-	double mat3[3][3] // í–‰ë ¬ ê¸°ë³¸ê°’
-	{
-			{1,0,0},
-			{0,1,0},
-			{0,0,1}
+	double mat3[3][3]{ // 3x3Çà·Ä ±âº»°ª
+	
+			{0,0,0},
+			{0,0,0},
+			{0,0,0}
 	};
 
-	Mat3(){}
+	double tempmat3[3][3]{ // 3x3Çà·Ä ±âº»°ª
+	
+			{0,0,0},
+			{0,0,0},
+			{0,0,0}
+	};
 
-	Mat3(double x, double y){ // ì´ë™í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ ì´ë™í•  xê°’yê°’ì„ ë°›ìŒ
+	double mat4[4][4]{ // 4x4Çà·Ä ±âº»°ª
+	
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0}
+	};
 
-		mat3[2][0] = x;
-		mat3[2][1] = y;
+	double tempmat4[4][4]{ // 4x4Çà·Ä ±âº»°ª
+	
+			{1,0,0,0},
+			{0,1,0,0},
+			{0,0,1,0},
+			{0,0,0,1}
+	};
+
+	double vec3[1][3]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	
+		{0,0,1}
+	};
+
+	double vec31[3][1]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	
+		{0},
+		{0},
+		{1}
+	};
+
+	double tempvec31[3][1]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	
+		{0},
+		{0},
+		{1}
+	};
+
+	double tempvec3[1][3]{  // °ö°è»ê °ªÀ» ÀúÀåÇÒ ´ÙÂ÷¿ø ¹è¿­
+	
+		{0,0,1}
+	};
+
+	double vec4[1][4]{ // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	
+		{0,0,0,1}
+	};
+
+	double vec41[4][1] { // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+		{0},
+		{0},
+		{0},
+		{1}
+	};
+
+	double tempvec41[4][1]{ // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+		{0},
+		{0},
+		{0},
+		{1}
+	};
+
+	double tempvec4[1][4]{ // °ö°è»ê °ªÀ» ÀúÀåÇÒ ´ÙÂ÷¿ø ¹è¿­
+		{0,0,0,1}
+	};
+
+	double temp = 0; 
+	
+	bool transpose = false;
+
+	void transpose_matrix(int length) { // 3x3 Çà·ÄÀ» ÀüÄ¡ÇØÁÖ´Â ÇÔ¼ö
+		if (length == 3) {
+			for (int i = 0; i < 2; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					if (i == 0 && j > 0) {
+						temp = mat3[i][j];
+						mat3[i][j] = mat3[j][i];
+						mat3[j][i] = temp;
+						temp = 0;
+					}
+					if (i == 1 && j == 2)
+					{
+						temp = mat3[i][j];
+						mat3[i][j] = mat3[j][i];
+						mat3[j][i] = temp;
+						temp = 0;
+					}
+				}
+
+			}
+		}
+		else if (length == 4) {
+			for (int i = 0; i < 3; i++)
+			{
+				switch (i)
+				{
+				case 0:
+					for (int j = 1; j < 4; j++)
+					{
+						temp = mat4[i][j];
+						mat4[i][j] = mat4[j][i];
+						mat4[j][i] = temp;
+						temp = 0;
+					}
+					break;
+				case 1:
+					for (int j = 2; j < 4; j++)
+					{
+						temp = mat4[i][j];
+						mat4[i][j] = mat4[j][i];
+						mat4[j][i] = temp;
+						temp = 0;
+					}
+					break;
+				case 2:
+					temp = mat4[i][3];
+					mat4[i][3] = mat4[3][i];
+					mat4[3][i] = temp;
+					temp = 0;
+					break;
+				}
+			}
+		}
+
+		if (transpose == false)
+		{
+			transpose = true;
+		}
+		else {
+			transpose = false;
+		}
+	}
+	
+	void transpose_vector(int length) { 
+		if (length == 3) {
+			for (int j = 0; j < 3; j++)
+			{
+				temp = vec3[0][j];
+				vec3[0][j] = vec31[j][0];
+				vec31[j][0] = temp;
+				temp = 0;
+			}
+		}else if (length == 4) {
+			for (int j = 0; j < 4; j++)
+			{
+				temp = vec4[0][j];
+				vec4[0][j] = vec41[j][0];
+				vec41[j][0] = temp;
+				temp = 0;
+			}
+		}
+		if (transpose == false)
+		{
+			transpose = true;
+		}
+		else {
+			transpose = false;
+		}
 	}
 
-	Mat3(double rad, string s) { // íšŒì „í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ íšŒì „í•  ê°ë„ì™€ íšŒì „ë°©í–¥ì„ ë°›ìŒ
+	void identity_matrix(int length) {
+		if (length == 3) {
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					if (i == j) {
+						mat3[i][j] = 1;
+					}
+					else {
+						mat3[i][j] = 0;
+					}
+				}
+			}
+		}else if (length == 4) {
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					if (i == j) {
+						mat4[i][j] = 1;
+					}
+					else {
+						mat4[i][j] = 0;
+					}
+				}
+			}
+		}
+	}
 
-		if(s=="right") // ì˜¤ë¥¸ìª½ íšŒì „
-		{		
-		mat3[0][0] = cos(rad * (3.14 / 180));
-		mat3[0][1] = -sin(rad * (3.14 / 180));
-		mat3[1][0] = sin(rad * (3.14 / 180));
-		mat3[1][1] = cos(rad * (3.14 / 180));
-		}else if (s == "left") // ì™¼ìª½ íšŒì „
+	void identity_vector(int length) {
+		if (length == 3) {
+			for (int i = 0; i < 3; i++)
+			{
+				vec3[0][i] = 1;
+				vec31[i][0] = 1;
+			}
+		}else if (length == 4) {
+			for (int i = 0; i < 4; i++)
+			{
+				vec4[0][i] = 1;
+				vec41[i][0] = 1;
+			}
+		}
+	}
+};
+
+class Mat3 : public Mumath {// Çà·Ä Å¬·¡½º
+
+public:
+
+	int length = 3;
+
+	Mat3() {}
+
+	Mat3(double x, double y) { // ÀÌµ¿Çà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î ÀÌµ¿ÇÒ x°ªy°ªÀ» ¹ŞÀ½
+		mat3[2][0] = x;
+		mat3[2][1] = y;
+		mat3[0][0] = 1;
+		mat3[1][1] = 1;
+		mat3[2][2] = 1;
+	}
+
+	Mat3(double rad, string s) { // È¸ÀüÇà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î È¸ÀüÇÒ °¢µµ¿Í È¸Àü¹æÇâÀ» ¹ŞÀ½
+
+		if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+		{
+			mat3[0][0] = cos(rad * (3.14 / 180));
+			mat3[0][1] = -sin(rad * (3.14 / 180));
+			mat3[1][0] = sin(rad * (3.14 / 180));
+			mat3[1][1] = cos(rad * (3.14 / 180));
+			mat3[2][2] = 1;
+		}
+		else if (s == "left") // ¿ŞÂÊ È¸Àü
 		{
 			mat3[0][0] = cos(rad * (3.14 / 180));
 			mat3[0][1] = sin(rad * (3.14 / 180));
 			mat3[1][0] = -sin(rad * (3.14 / 180));
 			mat3[1][1] = cos(rad * (3.14 / 180));
+			mat3[2][2] = 1;
 		}
 	}
 
-	Mat3(double s){ // í¬ê¸°ë³€í™˜í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ ë³€í™˜ë  í¬ê¸°ë¥¼ ë°›ìŒ
+	Mat3(double s) { // Å©±âº¯È¯Çà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î º¯È¯µÉ Å©±â¸¦ ¹ŞÀ½
 		mat3[0][0] = s;
 		mat3[1][1] = s;
+		mat3[2][2] = 1;
 	}
 
+	Mat3(double m0, double m1, double m2, double m3, double m4, double m5, double m6, double m7, double m8)
+	{
+		mat3[0][0] = m0; mat3[0][1] = m1; mat3[0][2] = m2;
+		mat3[1][0] = m3; mat3[1][1] = m4; mat3[1][2] = m5;
+		mat3[2][0] = m6; mat3[2][1] = m7; mat3[2][2] = m8;
+	}
+
+	void print()
+	{
+		cout << "\n{";
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				cout << " " << mat3[i][j];
+			}
+			if (i < 2) cout << "\n ";
+		}
+		cout << " }\n" << endl;
+	}
+
+	Mat3 multifly_matrix(Mat3& m, Mat3& m1);
+	
+	Mat3 multifly_transpose_matrix(Mat3& m, Mat3& m1);
+
+	Mat3 multifly_const_matrix(Mat3& m, double a);
+
+	Mat3 division_const_matrix(Mat3& m, double a);
+
+	Mat3 plus_matrix(Mat3& m, Mat3& m1);
+
+	Mat3 minus_matrix(Mat3& m, Mat3& m1);
+
+	Mat3 operator * (Mat3& m)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = 0;
+			}
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				for (int k = 0; k < 3; k++)
+				{
+					tempmat3[i][j] = tempmat3[i][j]+ (mat3[i][k] * m.mat3[k][j]);
+				}
+			}
+		}
+		return Mat3(
+			tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], 
+			tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], 
+			tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]); // °´Ã¼°ªÀ» ³»º¸³¿
+	}
+
+	Mat3 operator * (double a)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = 0;
+			}
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = mat3[i][j] * a;
+			}
+		}
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+	}
+
+	Mat3 operator / (double a)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = 0;
+			}
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = mat3[i][j] / a;
+			}
+		}
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+	}
+
+	Mat3 operator + (Mat3& m)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = 0;
+			}
+		}
+		for (int j = 0; j < 3; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{
+				tempmat3[j][k] = tempmat3[j][k] + (mat3[j][k] + m.mat3[j][k]);
+			}
+		}
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+	}
+
+	Mat3 operator - (Mat3& m)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++) {
+				tempmat3[i][j] = 0;
+			}
+		}
+		for (int j = 0; j < 3; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{
+				tempmat3[j][k] = tempmat3[j][k] + (mat3[j][k] - m.mat3[j][k]);
+			}
+		}
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+	}
 };
 
-class Vec3{  // ë²¡í„° í´ë˜ìŠ¤
+class Mat4 : public Mumath {
+
+ public:
+
+	 int length = 4;
+
+	 Mat4() {}
+
+	 Mat4(double x, double y, double z)
+	 {
+		 mat4[3][0] = x;
+		 mat4[3][1] = y;
+		 mat4[3][2] = z;
+		 mat4[0][0] = 1;
+		 mat4[1][1] = 1;
+		 mat4[2][2] = 1;
+		 mat4[3][3] = 1;
+	 }
+
+	 Mat4(double rad, char c, string s) { // È¸ÀüÇà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î È¸ÀüÇÒ °¢µµ¿Í È¸Àü¹æÇâÀ» ¹ŞÀ½
+
+		 switch (c)
+		 {
+		 case 'x':
+			 if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			 {
+				 mat4[0][0] = 1;
+				 mat4[1][1] = cos(rad * (3.14 / 180));
+				 mat4[1][2] = -sin(rad * (3.14 / 180));
+				 mat4[2][1] = sin(rad * (3.14 / 180));
+				 mat4[2][2] = cos(rad * (3.14 / 180));
+				 mat4[3][3] = 1;
+			 }
+			 else if (s == "left") // ¿ŞÂÊ È¸Àü
+			 {	
+				 mat4[0][0] = 1;
+				 mat4[1][1] = cos(rad * (3.14 / 180));
+				 mat4[1][2] = sin(rad * (3.14 / 180));
+				 mat4[2][1] = -sin(rad * (3.14 / 180));
+				 mat4[2][2] = cos(rad * (3.14 / 180));
+				 mat4[3][3] = 1;
+			 }
+			 break;
+		 case 'y':
+			 if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			 {
+				 mat4[0][0] = cos(rad * (3.14 / 180));
+				 mat4[1][1] = 1;
+				 mat4[0][2] = sin(rad * (3.14 / 180));
+				 mat4[2][0] = -sin(rad * (3.14 / 180));
+				 mat4[2][2] = cos(rad * (3.14 / 180));
+				 mat4[3][3] = 1;
+			 }
+			 else if (s == "left") // ¿ŞÂÊ È¸Àü
+			 {
+				 mat4[0][0] = cos(rad * (3.14 / 180));
+				 mat4[1][1] = 1;
+				 mat4[0][2] = -sin(rad * (3.14 / 180));
+				 mat4[2][0] = sin(rad * (3.14 / 180));
+				 mat4[2][2] = cos(rad * (3.14 / 180));
+				 mat4[3][3] = 1;
+			 }
+			 break;
+		 case 'z':
+			 if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			 {
+				 mat4[0][0] = cos(rad * (3.14 / 180));
+				 mat4[0][1] = -sin(rad * (3.14 / 180));
+				 mat4[1][0] = sin(rad * (3.14 / 180));
+				 mat4[1][1] = cos(rad * (3.14 / 180));
+				 mat4[2][2] = 1;
+				 mat4[3][3] = 1;
+			 }
+			 else if (s == "left") // ¿ŞÂÊ È¸Àü
+			 {
+				 mat4[0][0] = cos(rad * (3.14 / 180));
+				 mat4[0][1] = sin(rad * (3.14 / 180));
+				 mat4[1][0] = -sin(rad * (3.14 / 180));
+				 mat4[1][1] = cos(rad * (3.14 / 180));
+				 mat4[2][2] = 1;
+				 mat4[3][3] = 1;
+			 }
+			 break;
+		 }
+	 }
+
+	 Mat4(double s)
+	 {
+		 mat4[0][0] = s;
+		 mat4[1][1] = s;
+		 mat4[2][2] = s;
+		 mat4[2][2] = s;
+		 mat4[3][3] = 1;
+	 }
+
+	 Mat4(double m0, double m1, double m2, double m3, double m4, double m5, double m6, double m7, 
+		 double m8, double m9, double m10, double m11, double m12, double m13, double m14, double m15)
+	 {
+		 mat4[0][0] = m0; mat4[0][1] = m1; mat4[0][2] = m2; mat4[0][3] = m3;
+		 mat4[1][0] = m4; mat4[1][1] = m5; mat4[1][2] = m6; mat4[1][3] = m7;
+		 mat4[2][0] = m8; mat4[2][1] = m9; mat4[2][2] = m10; mat4[2][3] = m11;
+		 mat4[3][0] = m12; mat4[3][1] = m13; mat4[3][2] = m14; mat4[3][3] = m15;
+	 }
+
+	 void print()
+	 {
+		 cout << "\n{";
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++)
+			 {
+				 cout << " " << mat4[i][j];
+			 }
+			 if (i < 3) cout << "\n ";
+		 }
+		 cout << " }\n" << endl;
+	 }
+
+	 Mat4 operator * (Mat4& m)
+	 {
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = 0;
+			 }
+		 }
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++)
+			 {
+				 for (int k = 0; k < 4; k++)
+				 {
+					 tempmat4[i][j] = tempmat4[i][j] + (mat4[i][k] * m.mat4[k][j]);
+				 }
+			 }
+		 }
+		 return Mat4(
+				tempmat4[0][0], tempmat4[0][1], tempmat4[0][2], tempmat4[0][3], 
+				tempmat4[1][0], tempmat4[1][1], tempmat4[1][2], tempmat4[1][3], 
+				tempmat4[2][0], tempmat4[2][1], tempmat4[2][2], tempmat4[2][3], 
+				tempmat4[3][0], tempmat4[3][1], tempmat4[3][2], tempmat4[3][3]);
+	 }
+
+	 Mat4 operator * (double a)
+	 {
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = 0;
+			 }
+		 }
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = mat4[i][j] * a;
+			 }
+		 }
+		 return Mat4(
+			 tempmat4[0][0], tempmat4[0][1], tempmat4[0][2], tempmat4[0][3],
+			 tempmat4[1][0], tempmat4[1][1], tempmat4[1][2], tempmat4[1][3],
+			 tempmat4[2][0], tempmat4[2][1], tempmat4[2][2], tempmat4[2][3],
+			 tempmat4[3][0], tempmat4[3][1], tempmat4[3][2], tempmat4[3][3]);
+	 }
+
+	 Mat4 operator / (double a)
+	 {
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = 0;
+			 }
+		 }
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = mat4[i][j] / a;
+			 }
+		 }
+		 return Mat4(
+			 tempmat4[0][0], tempmat4[0][1], tempmat4[0][2], tempmat4[0][3],
+			 tempmat4[1][0], tempmat4[1][1], tempmat4[1][2], tempmat4[1][3],
+			 tempmat4[2][0], tempmat4[2][1], tempmat4[2][2], tempmat4[2][3],
+			 tempmat4[3][0], tempmat4[3][1], tempmat4[3][2], tempmat4[3][3]);
+	 }
+
+	 Mat4 operator + (Mat4& m)
+	 {
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = 0;
+			 }
+		 }
+		 for (int j = 0; j < 4; j++)
+		 {
+			 for (int k = 0; k < 4; k++)
+			 {
+				 tempmat4[j][k] = tempmat4[j][k] + (mat4[j][k] + m.mat4[j][k]);
+			 }
+		 }
+		 return Mat4(
+			 tempmat4[0][0], tempmat4[0][1], tempmat4[0][2], tempmat4[0][3],
+			 tempmat4[1][0], tempmat4[1][1], tempmat4[1][2], tempmat4[1][3],
+			 tempmat4[2][0], tempmat4[2][1], tempmat4[2][2], tempmat4[2][3],
+			 tempmat4[3][0], tempmat4[3][1], tempmat4[3][2], tempmat4[3][3]);
+	 }
+
+	 Mat4 operator - (Mat4& m)
+	 {
+		 for (int i = 0; i < 4; i++)
+		 {
+			 for (int j = 0; j < 4; j++) {
+				 tempmat4[i][j] = 0;
+			 }
+		 }
+		 for (int j = 0; j < 4; j++)
+		 {
+			 for (int k = 0; k < 4; k++)
+			 {
+				 tempmat4[j][k] = tempmat4[j][k] + (mat4[j][k] - m.mat4[j][k]);
+			 }
+		 }
+		 return Mat4(
+			 tempmat4[0][0], tempmat4[0][1], tempmat4[0][2], tempmat4[0][3],
+			 tempmat4[1][0], tempmat4[1][1], tempmat4[1][2], tempmat4[1][3],
+			 tempmat4[2][0], tempmat4[2][1], tempmat4[2][2], tempmat4[2][3],
+			 tempmat4[3][0], tempmat4[3][1], tempmat4[3][2], tempmat4[3][3]);
+	 }
+
+	 Mat4 multifly_matrix(Mat4& m, Mat4& m1);
+
+	 Mat4 multifly_transpose_matrix(Mat4& m, Mat4& m1);
+
+	 Mat4 multifly_const_matrix(Mat4& m, double a);
+
+	 Mat4 division_const_matrix(Mat4& m, double a);
+
+	 Mat4 plus_matrix(Mat4& m, Mat4& m1);
+
+	 Mat4 minus_matrix(Mat4& m, Mat4& m1);
+};
+
+class Vec3 : public Mumath {  // º¤ÅÍ Å¬·¡½º
 
 public:
 
-	double vec3[1][3]  // ë²¡í„°ê°’ì´ ì €ì¥ë  ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
-	{
-		{0,0,1}
-	};
-
-	double tempvec3[1][3]  // ê³±ê³„ì‚° ê°’ì„ ì €ì¥í•  ë‹¤ì°¨ì› ë°°ì—´
-	{
-		{0,0,1}
-	};
-
-	double temp = 0; // ê³„ì‚°ì„ ìœ„í•œ ì„ì‹œ ì €ì¥ ë³€ìˆ˜
+	int length = 3;
 
 	Vec3(){}
 
-	Vec3(double x, double y) { // ë²¡í„° ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ x,yì¢Œí‘œë¥¼ ë°›ìŒ
+	Vec3(double x, double y, double z) { // º¤ÅÍ »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î x,yÁÂÇ¥¸¦ ¹ŞÀ½
 		vec3[0][0] = x;
 		vec3[0][1] = y;
+		vec3[0][2] = z;
 	}
 
-	void Convert(double p[1][3]) { // ë²¡í„°ê°’ì„ ì´ë™í•œ p ë²¡í„°ë¡œ ë³€ê²½
-		for (int i = 0; i < 3; i++)
-		{
-			vec3[0][i] = p[0][i];
+	void print()
+	{
+		if (!transpose) {
+			cout << "\n{ ";
+			for (int j = 0; j < 3; j++)
+			{
+				cout << vec3[0][j];
+				if (j < 2) cout << ", ";
+			}
+			cout << " }\n" << endl;
+		}
+		else {
+			cout << "\n{ ";
+			for (int j = 0; j < 3; j++)
+			{
+				cout << vec31[j][0];
+				if (j < 2) cout << ",\n  ";
+			}
+			cout << " }\n" << endl;
 		}
 	}
 
-	Vec3 operator * (Mat3& m) // operator *, ê³±í•˜ê¸° ì—°ì‚°ì„ ì •ì˜í•˜ê³  Mat3&ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì™€ í–‰ë ¬ê³± ê³„ì‚°
+	Vec3 operator * (Mat3& m) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
 	{
-		for(int j = 0; j < 3; j++)
+		for (int l = 0; l < 3; l++)
+		{
+			tempvec3[0][l] = 1;
+		}
+		for (int j = 0; j < 3; j++)
 		{
 			for (int k = 0; k < 3; k++)
 			{
@@ -88,12 +692,751 @@ public:
 			tempvec3[0][j] = temp;
 			temp = 0;
 		}
-		for (int l = 0; l < 3; l++)
-		{
-			vec3[0][l] = tempvec3[0][l];
-		}
-
-		return Vec3(vec3[0][0], vec3[0][1]); // ê°ì²´ê°’ì„ ë‚´ë³´ëƒ„
+		return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // °´Ã¼°ªÀ» ³»º¸³¿
 	}
 
+	Vec3 operator * (Vec3& v) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
+	{
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = 1;
+			}
+			for (int j = 0; j < 3; j++)
+			{
+				switch (j)
+				{
+				case 0:
+					temp = (vec3[0][1] * v.vec3[0][2]) - (vec3[0][2] * v.vec3[0][1]);
+					break;
+				case 1:
+					temp = (vec3[0][2] * v.vec3[0][0]) - (vec3[0][0] * v.vec3[0][2]);
+					break;
+				case 2:
+					temp = (vec3[0][0] * v.vec3[0][1]) - (vec3[0][1] * v.vec3[0][0]);
+					break;
+				}
+				tempvec3[0][j] = temp;
+				temp = 0;
+			}
+			return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // °´Ã¼°ªÀ» ³»º¸³¿
+	}
+
+	Vec3 operator * (double a)
+	{
+		if (transpose) {
+			for (int i = 0; i < 3; i++)
+			{				
+				tempvec31[i][0] = 0;			
+			}
+			for (int i = 0; i < 3; i++) {
+				tempvec31[i][0] = vec31[i][0] * a;
+			}
+			return Vec3(tempvec31[0][0], tempvec31[1][0], tempvec31[2][0]);
+		}
+		else {
+			for (int i = 0; i < 3; i++)
+			{			
+					tempvec3[0][i] = 0;
+			}
+			for (int i = 0; i < 3; i++)
+			{	
+					tempvec3[0][i] = vec3[0][i] * a;
+			}
+			return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]);
+		}
+	}
+
+	Vec3 operator / (double a)
+	{
+		if (transpose) {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec31[i][0] = 0;
+			}
+			for (int i = 0; i < 3; i++) {
+				tempvec31[i][0] = vec31[i][0] / a;
+			}
+			return Vec3(tempvec31[0][0], tempvec31[1][0], tempvec31[2][0]);
+		}
+		else {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = 0;
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = vec3[0][i] / a;
+			}
+			return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]);
+		}
+	}
+
+	Vec3 operator + (Vec3& v)
+	{
+		if (transpose == true && v.transpose == true) {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec31[i][0] = 0;
+			}
+			for (int i = 0; i < 3; i++) {
+				tempvec31[i][0] = vec31[i][0] + v.vec31[i][0];
+			}
+			return Vec3(tempvec31[0][0], tempvec31[1][0], tempvec31[2][0]);
+		}
+		else if(transpose == false && v.transpose == false) {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = 0;
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = vec3[0][i] + v.vec3[0][i];
+			}
+			return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]);
+		}
+	}
+
+	Vec3 operator - (Vec3& v)
+	{
+		if (transpose == true && v.transpose == true) {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec31[i][0] = 0;
+			}
+			for (int i = 0; i < 3; i++) {
+				tempvec31[i][0] = vec31[i][0] - v.vec31[i][0];
+			}
+			return Vec3(tempvec31[0][0], tempvec31[1][0], tempvec31[2][0]);
+		}
+		else if (transpose == false && v.transpose == false) {
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = 0;
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				tempvec3[0][i] = vec3[0][i] - v.vec3[0][i];
+			}
+			return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]);
+		}
+	}
+
+	Vec3 multifly_matrix(Mat3& m, Vec3& v);
+
+	Vec3 multifly_vector(Vec3& v, Mat3& m);
+
+	Vec3 multifly_vector(Vec3& v, Vec3& v1);
+
+	Vec3 multifly_transpose_matrix(Mat3& m, Vec3& v);
+
+	Vec3 multifly_transpose_vector(Vec3& v, Mat3& m);
+
+	Vec3 multifly_transpose_vector(Vec3& v, Vec3& v1);
+
+	Vec3 multifly_const_vector(Vec3& v, double a);
+
+	Vec3 division_const_vector(Vec3& v, double a);
+
+	Vec3 plus_vector(Vec3& v, Vec3& v1);
+
+	Vec3 minus_vector(Vec3& v, Vec3& v1);
 };
+
+class Vec4 : public Mumath {
+
+public:
+
+	int length = 4;
+
+	Vec4() {}
+
+	Vec4(double x, double y, double z ,double w) { // º¤ÅÍ »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î x,yÁÂÇ¥¸¦ ¹ŞÀ½
+		vec4[0][0] = x;
+		vec4[0][1] = y;
+		vec4[0][2] = z;
+		vec4[0][3] = w;
+	}
+
+	void print()
+	{
+		if (!transpose) {
+			cout << "\n{ ";
+			for (int j = 0; j < 4; j++)
+			{
+				cout << vec4[0][j];
+				if (j < 3) cout << ", ";
+			}
+			cout << " }\n" << endl;
+		}
+		else {
+			cout << "{ ";
+			for (int j = 0; j < 4; j++)
+			{
+				cout << vec41[j][0];
+				if (j < 3) cout << ",\n  ";
+			}
+			cout << " }\n" << endl;
+		}
+	}
+
+	Vec4 operator * (Mat4& m) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
+	{
+		for (int l = 0; l < 4; l++)
+		{
+			tempvec4[0][l] = 1;
+		}
+		for (int j = 0; j < 4; j++)
+		{
+			for (int k = 0; k < 4; k++)
+			{
+				temp = temp + (vec4[0][k] * m.mat4[k][j]);
+			}
+			tempvec4[0][j] = temp;
+			temp = 0;
+		}
+		return Vec4(tempvec4[0][0], tempvec4[0][1], tempvec4[0][2], tempvec4[0][3]);
+	}
+
+	Vec4 operator * (double a)
+	{
+		if (transpose) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec41[i][0] = 0;
+			}
+			for (int i = 0; i < 4; i++) {
+				tempvec41[i][0] = vec41[i][0] * a;
+			}
+			return Vec4(tempvec41[0][0], tempvec41[1][0], tempvec41[2][0], tempvec41[3][0]);
+		}
+		else {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = 0;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = vec4[0][i] * a;
+			}
+			return Vec4(tempvec4[0][0], tempvec4[0][1], tempvec4[0][2], tempvec4[0][3]);
+		}
+	}
+
+	Vec4 operator / (double a)
+	{
+		if (transpose) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec41[i][0] = 0;
+			}
+			for (int i = 0; i < 4; i++) {
+				tempvec41[i][0] = vec41[i][0] / a;
+			}
+			return Vec4(tempvec41[0][0], tempvec41[1][0], tempvec41[2][0], tempvec41[3][0]);
+		}
+		else {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = 0;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = vec4[0][i] / a;
+			}
+			return Vec4(tempvec4[0][0], tempvec4[0][1], tempvec4[0][2], tempvec4[0][3]);
+		}
+	}
+
+	Vec4 operator + (Vec4& v)
+	{
+		if (transpose == true && v.transpose == true) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec41[i][0] = 0;
+			}
+			for (int i = 0; i < 4; i++) {
+				tempvec41[i][0] = vec41[i][0] + v.vec41[i][0];
+			}
+			return Vec4(tempvec41[0][0], tempvec41[1][0], tempvec41[2][0], tempvec41[3][0]);
+		}
+		else if (transpose == false && v.transpose == false) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = 0;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = vec4[0][i] + v.vec4[0][i];
+			}
+			return Vec4(tempvec4[0][0], tempvec4[0][1], tempvec4[0][2], tempvec4[0][3]);
+		}
+	}
+
+	Vec4 operator - (Vec4& v)
+	{
+		if (transpose == true && v.transpose == true) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec41[i][0] = 0;
+			}
+			for (int i = 0; i < 4; i++) {
+				tempvec41[i][0] = vec41[i][0] - v.vec41[i][0];
+			}
+			return Vec4(tempvec41[0][0], tempvec41[1][0], tempvec41[2][0], tempvec41[3][0]);
+		}
+		else if (transpose == false && v.transpose == false) {
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = 0;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				tempvec4[0][i] = vec4[0][i] - v.vec4[0][i];
+			}
+			return Vec4(tempvec4[0][0], tempvec4[0][1], tempvec4[0][2], tempvec4[0][3]);
+		}
+	}
+
+	Vec4 multifly_matrix(Mat4& m, Vec4& v);
+
+	Vec4 multifly_vector(Vec4& v, Mat4& m);
+
+	Vec4 multifly_transpose_matrix(Mat4& m, Vec4& v);
+
+	Vec4 multifly_transpose_vector(Vec4& v, Mat4& m);
+
+	Vec4 multifly_const_vector(Vec4& v, double a);
+
+	Vec4 division_const_vector(Vec4& v, double a);
+
+	Vec4 plus_vector(Vec4& v, Vec4& v1);
+
+	Vec4 minus_vector(Vec4& v, Vec4& v1);
+
+};
+
+Vec3 operator * (Mat3& m , Vec3& v)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++) {
+			m.tempmat3[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			m.temp = m.temp + (m.mat3[i][j] * v.vec31[j][0]);
+		}
+		m.tempmat3[i][0] = m.temp;
+		m.temp = 0;
+	}
+	return Vec3 (m.tempmat3[0][0], m.tempmat3[1][0], m.tempmat3[2][0]);
+}
+
+Vec4 operator * (Mat4& m, Vec4& v)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++) {
+			m.tempmat4[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			m.temp = m.temp + (m.mat4[i][j] * v.vec41[j][0]);
+		}
+		m.tempmat4[i][0] = m.temp;
+		m.temp = 0;
+	}
+	return Vec4(m.tempmat4[0][0], m.tempmat4[1][0], m.tempmat4[2][0], m.tempmat4[3][0]);
+}
+
+// Çà·Ä 3 ¿¬»ê ÇÔ¼ö
+
+Mat3 Mat3::multifly_matrix(Mat3& m ,Mat3& m1)
+{
+	Mat3 mat = m * m1;
+	mat.print();
+	return 0;
+}
+
+Mat3 Mat3::multifly_transpose_matrix(Mat3& m, Mat3& m1)
+{
+	Mat3 mat = m * m1;
+	mat.transpose_matrix(mat.length);
+	mat.print();
+	return 0;
+}
+
+Vec3 Vec3::multifly_matrix(Mat3& m, Vec3& v)
+{
+	Vec3 vec;
+	if (!v.transpose) {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		return vec;
+	}
+	vec = m * v;
+	vec.transpose_vector(vec.length);
+	vec.print();
+	return vec;
+}
+
+Vec3 Vec3::multifly_transpose_matrix(Mat3& m, Vec3& v)
+{
+	Vec3 vec;
+	if (!v.transpose) {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		return vec;
+	}
+	vec = m * v;
+	vec.transpose_vector(vec.length);
+	vec.print();
+	return vec;;
+}
+
+Mat3 Mat3::multifly_const_matrix(Mat3& m, double a)
+{
+	Mat3 mat = m * a;
+	mat.print();
+	return 0;
+}
+
+Mat3 Mat3::division_const_matrix(Mat3& m, double a)
+{
+	Mat3 mat = m / a;
+	mat.print();
+	return 0;
+}
+
+Mat3 Mat3::plus_matrix(Mat3& m, Mat3& m1)
+{
+	Mat3 mat = m + m1;
+	mat.print();
+	return 0;
+}
+
+Mat3 Mat3::minus_matrix(Mat3& m, Mat3& m1)
+{
+	Mat3 mat = m - m1;
+	mat.print();
+	return 0;
+}
+
+// º¤ÅÍ 3 ¿¬»ê ÇÔ¼ö
+
+Vec3 Vec3::multifly_vector(Vec3& v, Mat3& m)
+{
+	Vec3 vec;
+	if (v.transpose)
+	{		
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+	}
+	else {
+		vec = v * m;
+		vec.print();
+	}
+	return vec;
+}
+
+Vec3 Vec3::multifly_transpose_vector(Vec3& v, Mat3& m)
+{
+	Vec3 vec;
+	if (v.transpose)
+	{
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+	}
+	else {
+		vec = v * m;
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	return vec;
+}
+
+Vec3 Vec3::multifly_vector(Vec3& v, Vec3& v1)
+{
+	Vec3 vec;
+	if (v.transpose == false && v1.transpose == false)
+	{
+		vec = v * v1;
+		vec.print();
+		return vec;
+	}
+	else {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡\n" << endl;
+	}
+	return vec;
+}
+
+Vec3 Vec3::multifly_transpose_vector(Vec3& v, Vec3& v1)
+{
+	Vec3 vec;
+	if (v.transpose == false && v1.transpose == false)
+	{
+		vec = v * v1;
+		vec.transpose_vector(vec.length);
+		vec.print();
+		return vec;
+	}
+	else {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡\n" << endl;
+	}
+	return vec;
+}
+
+Vec3 Vec3::multifly_const_vector(Vec3& v, double a)
+{
+	Vec3 vec = v * a;
+	if (v.transpose == true)
+	{
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	else
+	{
+		vec.print();
+	}
+	return vec;
+}
+
+Vec3 Vec3::division_const_vector(Vec3& v, double a)
+{
+	Vec3 vec = v / a;
+	if (v.transpose == true)
+	{
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	else
+	{
+		vec.print();
+	}
+	return vec;
+}
+
+Vec3 Vec3::plus_vector(Vec3& v, Vec3& v1)
+{
+	Vec3 vec;
+	if (v.transpose == v1.transpose)
+	{
+		vec = v + v1;
+		if (v.transpose == true)
+		{
+			vec.transpose_vector(vec.length);
+			vec.print();
+		}
+		else
+		{
+			vec.print();
+		}
+		return vec;
+	}
+	else {
+		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+	}
+	return vec;
+}
+
+Vec3 Vec3::minus_vector(Vec3& v, Vec3& v1)
+{
+	Vec3 vec;
+	if (v.transpose == v1.transpose)
+	{
+		vec = v - v1;
+		if (v.transpose == true)
+		{
+			vec.transpose_vector(vec.length);
+			vec.print();
+		}
+		else
+		{
+			vec.print();
+		}
+		return vec;
+	}
+	else {
+		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+	}
+	return vec;
+}
+
+// Çà·Ä 4 ¿¬»ê ÇÔ¼ö
+
+Mat4 Mat4::multifly_matrix(Mat4& m, Mat4& m1)
+{
+	Mat4 mat = m * m1;
+	mat.print();
+	return 0;
+}
+
+Mat4 Mat4::multifly_transpose_matrix(Mat4& m, Mat4& m1)
+{
+	Mat4 mat = m * m1;
+	mat.transpose_matrix(mat.length);
+	mat.print();
+	return 0;
+}
+
+Vec4 Vec4::multifly_matrix(Mat4& m, Vec4& v)
+{
+	Vec4 vec;
+	if (!v.transpose) {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		return vec;
+	}
+	vec = m * v;
+	vec.print();
+	return vec;
+}
+
+Vec4 Vec4::multifly_transpose_matrix(Mat4& m, Vec4& v)
+{
+	Vec4 vec;
+	if (!v.transpose) {
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		return vec;
+	}
+	vec = m * v;
+	vec.transpose_vector(vec.length);
+	vec.print();
+	return vec;;
+}
+
+Mat4 Mat4::multifly_const_matrix(Mat4& m, double a)
+{
+	Mat4 mat = m * a;
+	mat.print();
+	return 0;
+}
+
+Mat4 Mat4::division_const_matrix(Mat4& m, double a)
+{
+	Mat4 mat = m / a;
+	mat.print();
+	return 0;
+}
+
+Mat4 Mat4::plus_matrix(Mat4& m, Mat4& m1)
+{
+	Mat4 mat = m + m1;
+	mat.print();
+	return 0;
+}
+
+Mat4 Mat4::minus_matrix(Mat4& m, Mat4& m1)
+{
+	Mat4 mat = m - m1;
+	mat.print();
+	return 0;
+}
+
+// º¤ÅÍ 4 ¿¬»ê ÇÔ¼ö
+
+Vec4 Vec4::multifly_vector(Vec4& v, Mat4& m)
+{
+	Vec4 vec;
+	if (v.transpose)
+	{
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+	}
+	else {
+		vec = v * m;
+		vec.print();
+	}
+	return vec;
+}
+
+Vec4 Vec4::multifly_transpose_vector(Vec4& v, Mat4& m)
+{
+	Vec4 vec;
+	if (v.transpose)
+	{
+		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+	}
+	else {
+		vec = v * m;
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	return vec;
+}
+
+Vec4 Vec4::multifly_const_vector(Vec4& v, double a)
+{
+	Vec4 vec = v * a;
+	if (v.transpose == true)
+	{
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	else
+	{
+		vec.print();
+	}
+	return vec;
+}
+
+Vec4 Vec4::division_const_vector(Vec4& v, double a)
+{
+	Vec4 vec = v / a;
+	if (v.transpose == true)
+	{
+		vec.transpose_vector(vec.length);
+		vec.print();
+	}
+	else
+	{
+		vec.print();
+	}
+	return vec;
+}
+
+Vec4 Vec4::plus_vector(Vec4& v, Vec4& v1)
+{
+	Vec4 vec;
+	if (v.transpose == v1.transpose)
+	{
+		vec = v + v1;
+		if (v.transpose == true)
+		{
+			vec.transpose_vector(vec.length);
+			vec.print();
+		}
+		else
+		{
+			vec.print();
+		}
+		return vec;
+	}
+	else {
+		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+	}
+	return vec;
+}
+
+Vec4 Vec4::minus_vector(Vec4& v, Vec4& v1)
+{
+	Vec4 vec;
+	if (v.transpose == v1.transpose)
+	{
+		vec = v - v1;
+		if (v.transpose == true)
+		{
+			vec.transpose_vector(vec.length);
+			vec.print();
+		}
+		else
+		{
+			vec.print();
+		}
+		return vec;
+	}
+	else {
+		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+	}
+	return vec;
+}
