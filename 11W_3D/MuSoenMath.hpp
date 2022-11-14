@@ -9,21 +9,21 @@ class Mumath {
 
 public:
 
-	double mat3[3][3]{ // 3x3Çà·Ä ±âº»°ª
+	double mat3[3][3]{ // 3x3í–‰ë ¬ ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 
 			{0,0,0},
 			{0,0,0},
 			{0,0,0}
 	};
 
-	double tempmat3[3][3]{ // 3x3Çà·Ä ±âº»°ª
+	double tempmat3[3][3]{ // 3x3í–‰ë ¬ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©í•˜ëŠ” ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 
 			{0,0,0},
 			{0,0,0},
 			{0,0,0}
 	};
 
-	double mat4[4][4]{ // 4x4Çà·Ä ±âº»°ª
+	double mat4[4][4]{ // 4x4í–‰ë ¬ ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 
 			{0,0,0,0},
 			{0,0,0,0},
@@ -31,67 +31,67 @@ public:
 			{0,0,0,0}
 	};
 
-	double tempmat4[4][4]{ // 4x4Çà·Ä ±âº»°ª
+	double tempmat4[4][4]{ // 4x4í–‰ë ¬ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©í•˜ëŠ” ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 
-			{1,0,0,0},
-			{0,1,0,0},
-			{0,0,1,0},
-			{0,0,0,1}
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0}
 	};
 
-	double vec3[1][3]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double vec3[1][3]{  // Vec3 ë²¡í„°ê°’ì´ ì €ì¥ë  ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 
 		{0,0,1}
 	};
 
-	double vec31[3][1]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double vec31[3][1]{  // ì „ì¹˜ëœ Vec3 ë²¡í„°ê°’ì´ ì €ì¥ë  ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 
 		{0},
 		{0},
 		{1}
 	};
 
-	double tempvec31[3][1]{  // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double tempvec31[3][1]{  // Vec3ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©ë  ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 
 		{0},
 		{0},
 		{1}
 	};
 
-	double tempvec3[1][3]{  // °ö°è»ê °ªÀ» ÀúÀåÇÒ ´ÙÂ÷¿ø ¹è¿­
+	double tempvec3[1][3]{  // Vec3ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©ë  ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 
 		{0,0,1}
 	};
 
-	double vec4[1][4]{ // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double vec4[1][4]{ // Vec4 ë²¡í„°ê°’ì´ ì €ì¥ë  ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 
 		{0,0,0,1}
 	};
 
-	double vec41[4][1]{ // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double vec41[4][1]{ // Vec4 ë²¡í„°ê°’ì´ ì €ì¥ë  ê¸°ë³¸ ë‹¤ì°¨ì› ë°°ì—´
 		{0},
 		{0},
 		{0},
 		{1}
 	};
 
-	double tempvec41[4][1]{ // º¤ÅÍ°ªÀÌ ÀúÀåµÉ ±âº» ´ÙÂ÷¿ø ¹è¿­
+	double tempvec41[4][1]{ // Vec4ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©ë  ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 		{0},
 		{0},
 		{0},
 		{1}
 	};
 
-	double tempvec4[1][4]{ // °ö°è»ê °ªÀ» ÀúÀåÇÒ ´ÙÂ÷¿ø ¹è¿­
+	double tempvec4[1][4]{ // Vec4ì˜ ê³„ì‚°ì‹œ ì‚¬ìš©ë  ì„ì‹œ ë‹¤ì°¨ì› ë°°ì—´
 		{0,0,0,1}
 	};
 
-	double temp = 0;
+	double temp = 0; // ê³„ì‚°ëœ ê°’ì„ ì„ì‹œ ì €ì¥í•  ë³€ìˆ˜
 
-	bool transpose = false;
+	bool transpose = false; // í•´ë‹¹ ë²¡í„°ê°€ ì „ì¹˜ë˜ì–´ìˆëŠ”ì§€ ì•„ë‹Œì§€ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 
-	void transpose_matrix(int length) { // 3x3 Çà·ÄÀ» ÀüÄ¡ÇØÁÖ´Â ÇÔ¼ö
-		if (length == 3) {
+	void transpose_matrix(int length) { // í–‰ë ¬ì„ ì „ì¹˜ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
+		if (length == 3) { // 3x3 í–‰ë ¬ì„ ì „ì¹˜í•´ì£¼ëŠ”   forë¬¸
 			for (int i = 0; i < 2; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -113,7 +113,7 @@ public:
 
 			}
 		}
-		else if (length == 4) {
+		else if (length == 4) { // 4x4 í–‰ë ¬ì„ ì „ì¹˜í•´ì£¼ëŠ” forë¬¸
 			for (int i = 0; i < 3; i++)
 			{
 				switch (i)
@@ -146,7 +146,7 @@ public:
 			}
 		}
 
-		if (transpose == false)
+		if (transpose == false) // ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì€ ê°ì²´ë¼ë©´ ì „ì¹˜ë¨ìœ¼ë¡œ í‘œì‹œ, ë˜ì–´ìˆëŠ” ê°ì²´ë¼ë©´ ì „ì¹˜ì•ˆë¨ìœ¼ë¡œ í‘œì‹œ
 		{
 			transpose = true;
 		}
@@ -155,8 +155,8 @@ public:
 		}
 	}
 
-	void transpose_vector(int length) {
-		if (length == 3) {
+	void transpose_vector(int length) { // ë²¡í„°ë¥¼ ì „ì¹˜ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
+		if (length == 3) { // Vec3 ë²¡í„°ê°’ì„ ì „ì¹˜í•´ì£¼ëŠ”   forë¬¸
 			for (int j = 0; j < 3; j++)
 			{
 				temp = vec3[0][j];
@@ -165,7 +165,7 @@ public:
 				temp = 0;
 			}
 		}
-		else if (length == 4) {
+		else if (length == 4) { // Vec4 ë²¡í„°ê°’ì„ ì „ì¹˜í•´ì£¼ëŠ” forë¬¸
 			for (int j = 0; j < 4; j++)
 			{
 				temp = vec4[0][j];
@@ -174,7 +174,7 @@ public:
 				temp = 0;
 			}
 		}
-		if (transpose == false)
+		if (transpose == false) // ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì€ ê°ì²´ë¼ë©´ ì „ì¹˜ë¨ìœ¼ë¡œ í‘œì‹œ, ë˜ì–´ìˆëŠ” ê°ì²´ë¼ë©´ ì „ì¹˜ì•ˆë¨ìœ¼ë¡œ í‘œì‹œ
 		{
 			transpose = true;
 		}
@@ -183,8 +183,8 @@ public:
 		}
 	}
 
-	void identity_matrix(int length) {
-		if (length == 3) {
+	void identity_matrix(int length) { // ë‹¨ìœ„í–‰ë ¬ë¡œ ì´ˆê¸°í™”í•´ì£¼ëŠ” í•¨ìˆ˜
+		if (length == 3) { //3x3í–‰ë ¬ì„ ë‹¨ìœ„í–‰ë ¬ë¡œ ì´ˆê¸°í™” í•´ì£¼ëŠ” forë¬¸
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
@@ -198,7 +198,7 @@ public:
 				}
 			}
 		}
-		else if (length == 4) {
+		else if (length == 4) { //4x4í–‰ë ¬ì„ ë‹¨ìœ„í–‰ë ¬ë¡œ ì´ˆê¸°í™” í•´ì£¼ëŠ” forë¬¸
 			for (int i = 0; i < 4; i++)
 			{
 				for (int j = 0; j < 4; j++)
@@ -214,15 +214,15 @@ public:
 		}
 	}
 
-	void identity_vector(int length) {
-		if (length == 3) {
+	void identity_vector(int length) { // ë‹¨ìœ„ë²¡í„°ë¡œ ì´ˆê¸°í™”í•´ì£¼ëŠ” í•¨ìˆ˜
+		if (length == 3) { //Vec3 ë²¡í„°ê°’ì„ ë‹¨ìœ„í–‰ë ¬ë¡œ ì´ˆê¸°í™” í•´ì£¼ëŠ” forë¬¸
 			for (int i = 0; i < 3; i++)
 			{
 				vec3[0][i] = 1;
 				vec31[i][0] = 1;
 			}
 		}
-		else if (length == 4) {
+		else if (length == 4) { //Vec4 ë²¡í„°ê°’ì„ ë‹¨ìœ„í–‰ë ¬ë¡œ ì´ˆê¸°í™” í•´ì£¼ëŠ” forë¬¸
 			for (int i = 0; i < 4; i++)
 			{
 				vec4[0][i] = 1;
@@ -232,7 +232,7 @@ public:
 	}
 };
 
-class Mat3 : public Mumath {// Çà·Ä Å¬·¡½º
+class Mat3 : public Mumath {// í–‰ë ¬ í´ë˜ìŠ¤
 
 public:
 
@@ -240,7 +240,7 @@ public:
 
 	Mat3() {}
 
-	Mat3(double x, double y) { // ÀÌµ¿Çà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î ÀÌµ¿ÇÒ x°ªy°ªÀ» ¹ŞÀ½
+	Mat3(double x, double y) { // ì´ë™í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ ì´ë™í•  xê°’yê°’ì„ ë°›ìŒ
 		mat3[2][0] = x;
 		mat3[2][1] = y;
 		mat3[0][0] = 1;
@@ -248,9 +248,9 @@ public:
 		mat3[2][2] = 1;
 	}
 
-	Mat3(double rad, string s) { // È¸ÀüÇà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î È¸ÀüÇÒ °¢µµ¿Í È¸Àü¹æÇâÀ» ¹ŞÀ½
+	Mat3(double rad, string s) { // íšŒì „í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ íšŒì „í•  ê°ë„ì™€ íšŒì „ë°©í–¥ì„ ë°›ìŒ
 
-		if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+		if (s == "right") // ì˜¤ë¥¸ìª½ íšŒì „
 		{
 			mat3[0][0] = cos(rad * (3.14 / 180));
 			mat3[0][1] = -sin(rad * (3.14 / 180));
@@ -258,7 +258,7 @@ public:
 			mat3[1][1] = cos(rad * (3.14 / 180));
 			mat3[2][2] = 1;
 		}
-		else if (s == "left") // ¿ŞÂÊ È¸Àü
+		else if (s == "left") // ì™¼ìª½ íšŒì „
 		{
 			mat3[0][0] = cos(rad * (3.14 / 180));
 			mat3[0][1] = sin(rad * (3.14 / 180));
@@ -268,7 +268,7 @@ public:
 		}
 	}
 
-	Mat3(double s) { // Å©±âº¯È¯Çà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î º¯È¯µÉ Å©±â¸¦ ¹ŞÀ½
+	Mat3(double s) { // í¬ê¸°ë³€í™˜í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ ë³€í™˜ë  í¬ê¸°ë¥¼ ë°›ìŒ
 		mat3[0][0] = s;
 		mat3[1][1] = s;
 		mat3[2][2] = 1;
@@ -328,7 +328,7 @@ public:
 		return Mat3(
 			tempmat3[0][0], tempmat3[0][1], tempmat3[0][2],
 			tempmat3[1][0], tempmat3[1][1], tempmat3[1][2],
-			tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]); // °´Ã¼°ªÀ» ³»º¸³¿
+			tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]); // ê°ì²´ê°’ì„ ë‚´ë³´ëƒ„
 	}
 
 	Mat3 operator * (double a)
@@ -345,7 +345,8 @@ public:
 				tempmat3[i][j] = mat3[i][j] * a;
 			}
 		}
-		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], 
+			tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
 	}
 
 	Mat3 operator / (double a)
@@ -362,7 +363,8 @@ public:
 				tempmat3[i][j] = mat3[i][j] / a;
 			}
 		}
-		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], 
+			tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
 	}
 
 	Mat3 operator + (Mat3& m)
@@ -380,7 +382,8 @@ public:
 				tempmat3[j][k] = tempmat3[j][k] + (mat3[j][k] + m.mat3[j][k]);
 			}
 		}
-		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], 
+			tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
 	}
 
 	Mat3 operator - (Mat3& m)
@@ -398,7 +401,8 @@ public:
 				tempmat3[j][k] = tempmat3[j][k] + (mat3[j][k] - m.mat3[j][k]);
 			}
 		}
-		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
+		return Mat3(tempmat3[0][0], tempmat3[0][1], tempmat3[0][2], tempmat3[1][0], 
+			tempmat3[1][1], tempmat3[1][2], tempmat3[2][0], tempmat3[2][1], tempmat3[2][2]);
 	}
 };
 
@@ -421,12 +425,12 @@ public:
 		mat4[3][3] = 1;
 	}
 
-	Mat4(double rad, char c, string s) { // È¸ÀüÇà·Ä »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î È¸ÀüÇÒ °¢µµ¿Í È¸Àü¹æÇâÀ» ¹ŞÀ½
+	Mat4(double rad, char c, string s) { // íšŒì „í–‰ë ¬ ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ íšŒì „í•  ê°ë„ì™€ íšŒì „ì¶•, íšŒì „ë°©í–¥ì„ ë°›ìŒ
 
 		switch (c)
 		{
 		case 'x':
-			if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			if (s == "right") // ì˜¤ë¥¸ìª½ íšŒì „
 			{
 				mat4[0][0] = 1;
 				mat4[1][1] = cos(rad * (3.14 / 180));
@@ -435,7 +439,7 @@ public:
 				mat4[2][2] = cos(rad * (3.14 / 180));
 				mat4[3][3] = 1;
 			}
-			else if (s == "left") // ¿ŞÂÊ È¸Àü
+			else if (s == "left") // ì™¼ìª½ íšŒì „
 			{
 				mat4[0][0] = 1;
 				mat4[1][1] = cos(rad * (3.14 / 180));
@@ -446,7 +450,7 @@ public:
 			}
 			break;
 		case 'y':
-			if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			if (s == "right") // ì˜¤ë¥¸ìª½ íšŒì „
 			{
 				mat4[0][0] = cos(rad * (3.14 / 180));
 				mat4[1][1] = 1;
@@ -455,7 +459,7 @@ public:
 				mat4[2][2] = cos(rad * (3.14 / 180));
 				mat4[3][3] = 1;
 			}
-			else if (s == "left") // ¿ŞÂÊ È¸Àü
+			else if (s == "left") // ì™¼ìª½ íšŒì „
 			{
 				mat4[0][0] = cos(rad * (3.14 / 180));
 				mat4[1][1] = 1;
@@ -466,7 +470,7 @@ public:
 			}
 			break;
 		case 'z':
-			if (s == "right") // ¿À¸¥ÂÊ È¸Àü
+			if (s == "right") // ì˜¤ë¥¸ìª½ íšŒì „
 			{
 				mat4[0][0] = cos(rad * (3.14 / 180));
 				mat4[0][1] = -sin(rad * (3.14 / 180));
@@ -475,7 +479,7 @@ public:
 				mat4[2][2] = 1;
 				mat4[3][3] = 1;
 			}
-			else if (s == "left") // ¿ŞÂÊ È¸Àü
+			else if (s == "left") // ì™¼ìª½ íšŒì „
 			{
 				mat4[0][0] = cos(rad * (3.14 / 180));
 				mat4[0][1] = sin(rad * (3.14 / 180));
@@ -644,7 +648,7 @@ public:
 	Mat4 minus_matrix(Mat4& m, Mat4& m1);
 };
 
-class Vec3 : public Mumath {  // º¤ÅÍ Å¬·¡½º
+class Vec3 : public Mumath {  // ë²¡í„° í´ë˜ìŠ¤
 
 public:
 
@@ -652,7 +656,7 @@ public:
 
 	Vec3() {}
 
-	Vec3(double x, double y, double z) { // º¤ÅÍ »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î x,yÁÂÇ¥¸¦ ¹ŞÀ½
+	Vec3(double x, double y, double z) { // ë²¡í„° ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ x,yì¢Œí‘œë¥¼ ë°›ìŒ
 		vec3[0][0] = x;
 		vec3[0][1] = y;
 		vec3[0][2] = z;
@@ -680,7 +684,7 @@ public:
 		}
 	}
 
-	Vec3 operator * (Mat3& m) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
+	Vec3 operator * (Mat3& m) // operator *, ê³±í•˜ê¸° ì—°ì‚°ì„ ì •ì˜í•˜ê³  Mat3&ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì™€ê³± ê³„ì‚°
 	{
 		for (int l = 0; l < 3; l++)
 		{
@@ -695,10 +699,10 @@ public:
 			tempvec3[0][j] = temp;
 			temp = 0;
 		}
-		return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // °´Ã¼°ªÀ» ³»º¸³¿
+		return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // ê°ì²´ê°’ì„ ë‚´ë³´ëƒ„
 	}
 
-	Vec3 operator * (Vec3& v) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
+	Vec3 operator * (Vec3& v) // operator *, ê³±í•˜ê¸° ì—°ì‚°ì„ ì •ì˜í•˜ê³  Vec3 v&ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì™€ ë²¡í„°ê³± ê³„ì‚°
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -721,7 +725,7 @@ public:
 			tempvec3[0][j] = temp;
 			temp = 0;
 		}
-		return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // °´Ã¼°ªÀ» ³»º¸³¿
+		return Vec3(tempvec3[0][0], tempvec3[0][1], tempvec3[0][2]); // ê°ì²´ê°’ì„ ë‚´ë³´ëƒ„
 	}
 
 	Vec3 operator * (double a)
@@ -853,7 +857,7 @@ public:
 
 	Vec4() {}
 
-	Vec4(double x, double y, double z, double w) { // º¤ÅÍ »ı¼ºÀÚ, ¸Å°³º¯¼ö·Î x,yÁÂÇ¥¸¦ ¹ŞÀ½
+	Vec4(double x, double y, double z, double w) { // ë²¡í„° ìƒì„±ì, ë§¤ê°œë³€ìˆ˜ë¡œ x,y,zì¢Œí‘œë¥¼ ë°›ìŒ
 		vec4[0][0] = x;
 		vec4[0][1] = y;
 		vec4[0][2] = z;
@@ -882,7 +886,7 @@ public:
 		}
 	}
 
-	Vec4 operator * (Mat4& m) // operator *, °öÇÏ±â ¿¬»êÀ» Á¤ÀÇÇÏ°í Mat3&¸¦ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Í Çà·Ä°ö °è»ê
+	Vec4 operator * (Mat4& m) // operator *, ê³±í•˜ê¸° ì—°ì‚°ì„ ì •ì˜í•˜ê³  Mat4&ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì™€ í–‰ë ¬ê³± ê³„ì‚°
 	{
 		for (int l = 0; l < 4; l++)
 		{
@@ -1058,7 +1062,7 @@ Vec4 operator * (Mat4& m, Vec4& v)
 	return Vec4(m.tempmat4[0][0], m.tempmat4[1][0], m.tempmat4[2][0], m.tempmat4[3][0]);
 }
 
-// Çà·Ä 3 ¿¬»ê ÇÔ¼ö
+// í–‰ë ¬ 3 ì—°ì‚° í•¨ìˆ˜
 
 Mat3 Mat3::multifly_matrix(Mat3& m, Mat3& m1)
 {
@@ -1079,7 +1083,7 @@ Vec3 Vec3::multifly_matrix(Mat3& m, Vec3& v)
 {
 	Vec3 vec;
 	if (!v.transpose) {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì•„ ê³±ì…ˆ ë¶ˆê°€" << endl;
 		return vec;
 	}
 	vec = m * v;
@@ -1092,11 +1096,10 @@ Vec3 Vec3::multifly_transpose_matrix(Mat3& m, Vec3& v)
 {
 	Vec3 vec;
 	if (!v.transpose) {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì•„ ê³±ì…ˆ ë¶ˆê°€" << endl;
 		return vec;
 	}
 	vec = m * v;
-	vec.transpose_vector(vec.length);
 	vec.print();
 	return vec;;
 }
@@ -1129,14 +1132,14 @@ Mat3 Mat3::minus_matrix(Mat3& m, Mat3& m1)
 	return 0;
 }
 
-// º¤ÅÍ 3 ¿¬»ê ÇÔ¼ö
+// ë²¡í„° 3 ì—°ì‚° í•¨ìˆ˜
 
 Vec3 Vec3::multifly_vector(Vec3& v, Mat3& m)
 {
 	Vec3 vec;
 	if (v.transpose)
 	{
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€" << endl;
 	}
 	else {
 		vec = v * m;
@@ -1150,7 +1153,7 @@ Vec3 Vec3::multifly_transpose_vector(Vec3& v, Mat3& m)
 	Vec3 vec;
 	if (v.transpose)
 	{
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€" << endl;
 	}
 	else {
 		vec = v * m;
@@ -1170,7 +1173,7 @@ Vec3 Vec3::multifly_vector(Vec3& v, Vec3& v1)
 		return vec;
 	}
 	else {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡\n" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€\n" << endl;
 	}
 	return vec;
 }
@@ -1186,7 +1189,7 @@ Vec3 Vec3::multifly_transpose_vector(Vec3& v, Vec3& v1)
 		return vec;
 	}
 	else {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡\n" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€\n" << endl;
 	}
 	return vec;
 }
@@ -1239,7 +1242,7 @@ Vec3 Vec3::plus_vector(Vec3& v, Vec3& v1)
 		return vec;
 	}
 	else {
-		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+		cout << "\në²¡í„°ê°’ì˜ í˜•íƒœê°€ ë‹¤ë¥´ê²Œ ì „ì¹˜ë˜ì–´ìˆì–´ ë§ì…ˆë¶ˆê°€" << endl;
 	}
 	return vec;
 }
@@ -1262,12 +1265,12 @@ Vec3 Vec3::minus_vector(Vec3& v, Vec3& v1)
 		return vec;
 	}
 	else {
-		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+		cout << "\në²¡í„°ê°’ì˜ í˜•íƒœê°€ ë‹¤ë¥´ê²Œ ì „ì¹˜ë˜ì–´ìˆì–´ ëº„ì…ˆë¶ˆê°€" << endl;
 	}
 	return vec;
 }
 
-// Çà·Ä 4 ¿¬»ê ÇÔ¼ö
+// í–‰ë ¬ 4 ì—°ì‚° í•¨ìˆ˜
 
 Mat4 Mat4::multifly_matrix(Mat4& m, Mat4& m1)
 {
@@ -1288,7 +1291,7 @@ Vec4 Vec4::multifly_matrix(Mat4& m, Vec4& v)
 {
 	Vec4 vec;
 	if (!v.transpose) {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì•„ ê³±ì…ˆ ë¶ˆê°€" << endl;
 		return vec;
 	}
 	vec = m * v;
@@ -1300,7 +1303,7 @@ Vec4 Vec4::multifly_transpose_matrix(Mat4& m, Vec4& v)
 {
 	Vec4 vec;
 	if (!v.transpose) {
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖÁö ¾Ê¾Æ °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì§€ ì•Šì•„ ê³±ì…ˆ ë¶ˆê°€" << endl;
 		return vec;
 	}
 	vec = m * v;
@@ -1337,14 +1340,14 @@ Mat4 Mat4::minus_matrix(Mat4& m, Mat4& m1)
 	return 0;
 }
 
-// º¤ÅÍ 4 ¿¬»ê ÇÔ¼ö
+// ë²¡í„° 4 ì—°ì‚° í•¨ìˆ˜
 
 Vec4 Vec4::multifly_vector(Vec4& v, Mat4& m)
 {
 	Vec4 vec;
 	if (v.transpose)
 	{
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€" << endl;
 	}
 	else {
 		vec = v * m;
@@ -1358,7 +1361,7 @@ Vec4 Vec4::multifly_transpose_vector(Vec4& v, Mat4& m)
 	Vec4 vec;
 	if (v.transpose)
 	{
-		cout << "\n¿À·ù : º¤ÅÍ°ªÀÌ ÀüÄ¡µÇ¾îÀÖ¾î °ö¼À ºÒ°¡" << endl;
+		cout << "\nì˜¤ë¥˜ : ë²¡í„°ê°’ì´ ì „ì¹˜ë˜ì–´ìˆì–´ ê³±ì…ˆ ë¶ˆê°€" << endl;
 	}
 	else {
 		vec = v * m;
@@ -1416,7 +1419,7 @@ Vec4 Vec4::plus_vector(Vec4& v, Vec4& v1)
 		return vec;
 	}
 	else {
-		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+		cout << "\në²¡í„°ê°’ì˜ í˜•íƒœê°€ ë‹¤ë¥´ê²Œ ì „ì¹˜ë˜ì–´ìˆì–´ ë§ì…ˆë¶ˆê°€" << endl;
 	}
 	return vec;
 }
@@ -1439,7 +1442,7 @@ Vec4 Vec4::minus_vector(Vec4& v, Vec4& v1)
 		return vec;
 	}
 	else {
-		cout << "\nº¤ÅÍ°ªÀÇ ÇüÅÂ°¡ ´Ù¸£°Ô ÀüÄ¡µÇ¾îÀÖ¾î µ¡¼ÀºÒ°¡" << endl;
+		cout << "\në²¡í„°ê°’ì˜ í˜•íƒœê°€ ë‹¤ë¥´ê²Œ ì „ì¹˜ë˜ì–´ìˆì–´ ëº„ì…ˆë¶ˆê°€" << endl;
 	}
 	return vec;
 }
