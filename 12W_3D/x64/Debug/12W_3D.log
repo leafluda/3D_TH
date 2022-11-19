@@ -1,0 +1,21 @@
+﻿  12W.cpp
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(199,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(199,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(202,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(202,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(205,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(205,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(208,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(208,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(211,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(211,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(215,87): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(215,52): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(223,103): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(223,62): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\12W.cpp(237,19): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\MuSoenMath.hpp(804): warning C4715: 'Vec3::operator+': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\MuSoenMath.hpp(829): warning C4715: 'Vec3::operator-': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\MuSoenMath.hpp(980): warning C4715: 'Vec4::operator+': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\김태형\source\repos\3D_TH_RE\12W_3D\MuSoenMath.hpp(1005): warning C4715: 'Vec4::operator-': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  12W_3D.vcxproj -> C:\Users\김태형\source\repos\3D_TH_RE\x64\Debug\12W_3D.exe
